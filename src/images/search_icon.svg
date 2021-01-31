@@ -1,0 +1,15 @@
+<svg id="Icons_Search_grey" data-name="Icons/Search_grey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 -3 28 28">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Combined_Shape_Copy" data-name="Combined Shape Copy" d="M18.752,20.38l-3.9-3.9a9.217,9.217,0,1,1,1.627-1.627l3.9,3.9a1.151,1.151,0,0,1-1.628,1.628ZM2.3,9.208A6.906,6.906,0,1,0,9.208,2.3,6.914,6.914,0,0,0,2.3,9.208Z" fill="#c2c4ca"/>
+    </clipPath>
+  </defs>
+  <rect id="Icons_Search_grey_background" data-name="Icons/Search_grey background" width="20.717" height="20.717" fill="rgba(0,0,0,0)"/>
+  <path id="Combined_Shape_Copy-2" data-name="Combined Shape Copy" d="M18.752,20.38l-3.9-3.9a9.217,9.217,0,1,1,1.627-1.627l3.9,3.9a1.151,1.151,0,0,1-1.628,1.628ZM2.3,9.208A6.906,6.906,0,1,0,9.208,2.3,6.914,6.914,0,0,0,2.3,9.208Z" fill="#c2c4ca"/>
+  <g id="Group_33" data-name="Group 33" clip-path="url(#clip-path)">
+    <g id="_Tint_Backgroud" data-name="↳Tint/Backgroud">
+      <rect id="_Tint_Backgroud_background" data-name="↳Tint/Backgroud background" width="20.717" height="20.717" fill="rgba(0,0,0,0)"/>
+      <rect id="Color" width="20.717" height="20.717" />
+    </g>
+  </g>
+</svg>
