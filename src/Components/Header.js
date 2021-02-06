@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import { ReactComponent as Logo } from '../images/logo.svg';
 //-----------------------style---------------------------//
-const Header = styled.header`
+const HeaderWrap = styled.header`
   width: 100%;
   height: 70px;
   display: flex;
@@ -36,18 +36,18 @@ const Header = styled.header`
 
 //---------------------component------------------------//
 
-const ProductListHeader = (props) => {
+const Header = (props) => {
   return (
     <>
-      <Header>
+      <HeaderWrap>
         <div>
           <Logo />
           <h1>電腦比比</h1>
         </div>
         {/* <h2>前往比較表</h2> */}
-      </Header>
+      </HeaderWrap>
     </>
   );
 };
 
-export default ProductListHeader;
+export default Header;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Footer = styled.footer`
+const FooterWrap = styled.footer`
   width: 100%;
   height: 150px;
   background-color: rgb(158, 158, 158);
@@ -20,18 +20,18 @@ const Footer = styled.footer`
   }
 `;
 
-const ProductFooter = (props) => {
+const Footer = (props) => {
   return (
     <>
-      <Footer>
+      <FooterWrap>
         <div>@2020電腦比比</div>
         <div>
           <p>成為合作夥伴</p>
           <p>聯絡我們：laptopbibi.service@gmail.com</p>
         </div>
-      </Footer>
+      </FooterWrap>
     </>
   );
 };
 
-export default ProductFooter;
+export default Footer;

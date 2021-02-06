@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { getProductData } from '../utils/getProductData';
+import { withRouter } from 'react-router-dom';
+import { getProductData } from '../../utils/getProductData';
 
 import styled from '@emotion/styled';
-import { ReactComponent as SearchIcon } from '../images/search_icon.svg';
+import { ReactComponent as SearchIcon } from '../../images/search_icon.svg';
 
 //--------------------style-----------------------//
 
@@ -285,11 +286,17 @@ const ProductListCompareBar = (props) => {
           })}
         </Row1>
         <Row2>
-          <button>前往比較表</button>
+          <button
+            onClick={() => {
+              props.history.push('/test');
+            }}
+          >
+            前往比較表
+          </button>
         </Row2>
       </Container>
     </>
   );
 };
 
-export default ProductListCompareBar;
+export default withRouter(ProductListCompareBar);

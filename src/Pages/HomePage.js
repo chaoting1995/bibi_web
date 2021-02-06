@@ -1,30 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { getProductData } from '../utils/getProductData';
-import { itemsState } from '../Components/ProductListFilterWay/AsideItems/otherItems';
+import { itemsState } from '../Components/Home/ProductListFilterWay/AsideItems/otherItems';
 //-------------------匯入樣式套件-----------------------//
 import styled from '@emotion/styled';
 
 //--------------------匯入子元件-----------------------//
-// 商品清單-頁首
-import ProductListHeader from '../Components/ProductListHeader';
+
 // 商品清單-側欄(篩選欄)
-import ProductListFilterWay from '../Components/ProductListFilterWay';
+import ProductListFilterWay from '../Components/Home/ProductListFilterWay';
 // 商品清單-待比較清單
-import ProductListCompareBar from '../Components/ProductListCompareBar';
+import ProductListCompareBar from '../Components/Home/ProductListCompareBar';
 // 商品清單-價格排序功能列
-import ProductListSortByPrice from '../Components/ProductListSortByPrice';
+import ProductListSortByPrice from '../Components/Home/ProductListSortByPrice';
 // 商品清單-商品資訊卡
-import ProductListCards from '../Components/ProductListCards';
+import ProductListCards from '../Components/Home/ProductListCards';
 // 商品清單-頁面選擇功能列
-import ProductListPagination from '../Components/ProductListPagination';
-// 商品清單-頁尾
-import ProductFooter from '../Components/ProductFooter';
+import ProductListPagination from '../Components/Home/ProductListPagination';
+
 //--------------------style------------------------//
-//包Header、Wrap
-const Container = styled.div`
-  width: 1070px;
-  margin: 0 auto 0 auto;
-`;
 
 //包ProductListSearchBar
 const Row1 = styled.div`
@@ -68,8 +61,8 @@ function HomePage(props) {
   // 頁數選擇
   const [page, setPage] = useState(0);
   // 待比較清單
-  const [compareList, setCompareList] = useState([]);
-
+  // const [compareList, setCompareList] = useState([]);
+  const { compareList, setCompareList } = props;
   //--------------------取得商品資料------------------------//
   // Declare
   const getProductDataInSetState = useCallback(async () => {
@@ -95,37 +88,37 @@ function HomePage(props) {
 
   //--------------------取得比較清單------------------------//
 
-  const readCompareListFromLocalStorage = () => {
-    const currentCompareList =
-      JSON.parse(localStorage.getItem('compareList')) || [];
-    setCompareList(currentCompareList); // 設定資料
-  };
-  useEffect(() => {
-    readCompareListFromLocalStorage();
-  }, []);
+  // const readCompareListFromLocalStorage = () => {
+  //   const currentCompareList =
+  //     JSON.parse(localStorage.getItem('compareList')) || [];
+  //   setCompareList(currentCompareList); // 設定資料
+  // };
+  // useEffect(() => {
+  //   readCompareListFromLocalStorage();
+  // }, []);
 
   //------------------------handle-------------------------//
 
-  // 添加項目到「待比較狀態」中
-  const handleAddToCompare = useCallback(
-    (id, img, brand, name) => {
-      if (compareList.length < 4) {
-        const newItem = [...compareList, { id, img, brand, name }];
-        setCompareList(newItem);
-        localStorage.setItem('compareList', JSON.stringify(newItem || []));
-      } else {
-        alert('已超過選擇上限');
-      }
-    },
-    [compareList]
-  );
-  // 移除「待比較狀態」中的項目
-  const handleRemoveFromCompare = (removeIndex) => {
-    const currentItems = [...compareList];
-    currentItems.splice(removeIndex, 1);
-    setCompareList(currentItems);
-    localStorage.setItem('compareList', JSON.stringify(currentItems || []));
-  };
+  // // 添加項目到「待比較狀態」中
+  // const handleAddToCompare = useCallback(
+  //   (id, img, brand, name) => {
+  //     if (compareList.length < 4) {
+  //       const newItem = [...compareList, { id, img, brand, name }];
+  //       setCompareList(newItem);
+  //       localStorage.setItem('compareList', JSON.stringify(newItem || []));
+  //     } else {
+  //       alert('已超過選擇上限');
+  //     }
+  //   },
+  //   [compareList]
+  // );
+  // // 移除「待比較狀態」中的項目
+  // const handleRemoveFromCompare = (removeIndex) => {
+  //   const currentItems = [...compareList];
+  //   currentItems.splice(removeIndex, 1);
+  //   setCompareList(currentItems);
+  //   localStorage.setItem('compareList', JSON.stringify(currentItems || []));
+  // };
 
   // 重置刪選與搜尋
   const handleQueryReset = useCallback(() => {
@@ -137,51 +130,47 @@ function HomePage(props) {
   //--------------------------JSX--------------------------//
   return (
     <>
-      <Container>
-        {/* 頁首 */}
-        <ProductListHeader />
-        {/* 待比較清單 */}
-        <Row1>
-          <ProductListCompareBar
-            compareList={compareList}
-            handleAddToCompare={handleAddToCompare}
-            handleRemoveFromCompare={handleRemoveFromCompare}
+      {/* 待比較清單 */}
+      <Row1>
+        <ProductListCompareBar
+          compareList={compareList}
+          // handleAddToCompare={handleAddToCompare}
+          // handleRemoveFromCompare={handleRemoveFromCompare}
+          {...props}
+        />
+      </Row1>
+      <Row2>
+        {/* 篩選方式 */}
+        <Aside>
+          <ProductListFilterWay
+            setSearch={setSearch}
+            setFilterBrand={setFilterBrand}
+            filterBrand={filterBrand}
+            setPriceRange={setPriceRange}
+            filterCondition={filterCondition}
+            setFilterCondition={setFilterCondition}
+            handleQueryReset={handleQueryReset}
           />
-        </Row1>
-        <Row2>
-          {/* 篩選方式 */}
-          <Aside>
-            <ProductListFilterWay
-              setSearch={setSearch}
-              setFilterBrand={setFilterBrand}
-              filterBrand={filterBrand}
-              setPriceRange={setPriceRange}
-              filterCondition={filterCondition}
-              setFilterCondition={setFilterCondition}
-              handleQueryReset={handleQueryReset}
-            />
-          </Aside>
-          {/* 價格排序功能列 */}
-          <Main>
-            <ProductListSortByPrice
-              sort={sort}
-              setSort={setSort}
-              productQuantity={productData.length}
-            />
-            {/* 商品列表 */}
-            <ProductListCards
-              productData={productData}
-              compareList={compareList}
-              handleAddToCompare={handleAddToCompare}
-              handleRemoveFromCompare={handleRemoveFromCompare}
-            />
-            {/* 分頁功能列 */}
-            <ProductListPagination page={page} setPage={setPage} />
-          </Main>
-        </Row2>
-      </Container>
-      {/* 頁尾 */}
-      <ProductFooter />
+        </Aside>
+        {/* 價格排序功能列 */}
+        <Main>
+          <ProductListSortByPrice
+            sort={sort}
+            setSort={setSort}
+            productQuantity={productData.length}
+          />
+          {/* 商品列表 */}
+          <ProductListCards
+            productData={productData}
+            compareList={compareList}
+            // handleAddToCompare={handleAddToCompare}
+            // handleRemoveFromCompare={handleRemoveFromCompare}
+            {...props}
+          />
+          {/* 分頁功能列 */}
+          <ProductListPagination page={page} setPage={setPage} />
+        </Main>
+      </Row2>
     </>
   );
 }

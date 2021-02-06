@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
 //-----------------------匯入icon--------------------------//
-import { ReactComponent as SearchIcon } from '../../images/search_icon.svg';
+import { ReactComponent as SearchIcon } from '../../../images/search_icon.svg';
 //-----------------------style---------------------------//
 const SearchBar = styled.div`
   display: flex;
@@ -30,7 +30,12 @@ const SearchBar = styled.div`
     align-items: center;
     cursor: pointer;
     &:hover{
-      background-color: #385981;
+      background-color: #47678e;
+      transition:0.3s
+    }
+    &:active{
+      background-color:#385981;
+      transition:0.3s
     }
     }
     svg {
