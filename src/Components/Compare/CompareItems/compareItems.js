@@ -14,3 +14,5 @@ export const compareItems = {
   product_weight: '重量',
   product_extras: '其他',
 };
+
+export const addItems = {};

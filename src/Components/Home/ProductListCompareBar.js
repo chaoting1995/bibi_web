@@ -34,6 +34,14 @@ const Row2 = styled.div`
     outline: none;
     border: 0px;
     cursor: pointer;
+    &:hover {
+      background-color: #47678e;
+      transition: 0.3s;
+    }
+    &:active {
+      background-color: #385981;
+      transition: 0.3s;
+    }
   }
 `;
 

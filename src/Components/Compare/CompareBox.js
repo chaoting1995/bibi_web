@@ -129,7 +129,7 @@ const CompareItemWap = styled.div`
   }
   div:nth-of-type(2) {
     position: absolute;
-    top: -20px;
+    top: -10px;
     right: -10px;
     background-color: #858585;
     color: #fff;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const FooterWrap = styled.footer`
+  margin-top: 40px;
   width: 100%;
   height: 150px;
   background-color: rgb(158, 158, 158);
