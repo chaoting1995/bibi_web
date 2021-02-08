@@ -19,10 +19,18 @@ import ProductListPagination from '../Components/Home/ProductListPagination';
 
 //--------------------style------------------------//
 
+const Row0 = styled.div`
+  width: 1070px;
+  height: 140px;
+  margin-bottom: 40px;
+`;
+
 //包ProductListSearchBar
 const Row1 = styled.div`
+  width: 1070px;
   display: flex;
   justify-content: center;
+  z-index: 1;
 `;
 
 //包Main、Aside
@@ -60,9 +68,9 @@ function HomePage(props) {
   const [sort, setSort] = useState(0);
   // 頁數選擇
   const [page, setPage] = useState(0);
-  // 待比較清單
+  // 待比較清單、當前頁面
   // const [compareList, setCompareList] = useState([]);
-  const { compareList, setCompareList } = props;
+  const { compareList, setCurrentPage } = props;
   //--------------------取得商品資料------------------------//
   // Declare
   const getProductDataInSetState = useCallback(async () => {
@@ -127,18 +135,46 @@ function HomePage(props) {
     setPriceRange([]);
     setFilterCondition(itemsState);
   }, []);
+
+  //設定「當前頁面」的狀態
+  useEffect(() => {
+    setCurrentPage('home');
+  }, [setCurrentPage]);
+
+  // 監聽
+  window.addEventListener('scroll', () => {
+    handleFixedCompareBar();
+  });
+  // 動態fixed
+  const handleFixedCompareBar = useCallback((position = 'absolute') => {
+    let compareBar = document.querySelector('.compareBar');
+    // 產品列表頁，沒有「.compareBar元素」，加「 && compareBar」才不會出錯
+    if (window.pageYOffset >= 69 && compareBar) {
+      compareBar.style.position = 'fixed';
+      compareBar.style.top = '0';
+      compareBar.style.boxShadow = '0px 4px 4px 0px rgb(0 0 0 / 50%)';
+    } else if (window.pageYOffset < 69 && compareBar) {
+      compareBar.style.position = 'relative';
+      compareBar.style.top = '0';
+      compareBar.style.boxShadow = '0px 0px 0px 0px rgb(0 0 0 / 50%)';
+    }
+  }, []);
+
   //--------------------------JSX--------------------------//
   return (
     <>
       {/* 待比較清單 */}
-      <Row1>
-        <ProductListCompareBar
-          compareList={compareList}
-          // handleAddToCompare={handleAddToCompare}
-          // handleRemoveFromCompare={handleRemoveFromCompare}
-          {...props}
-        />
-      </Row1>
+      <Row0>
+        <Row1 className="compareBar">
+          <ProductListCompareBar
+            compareList={compareList}
+            // handleAddToCompare={handleAddToCompare}
+            // handleRemoveFromCompare={handleRemoveFromCompare}
+            {...props}
+          />
+        </Row1>
+      </Row0>
+
       <Row2>
         {/* 篩選方式 */}
         <Aside>

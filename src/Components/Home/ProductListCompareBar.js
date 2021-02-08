@@ -13,7 +13,7 @@ const Container = styled.div`
   ${'' /* min-width: 963px; */}
   width: 100%;
   height: 140px;
-  margin-bottom: 40px;
+
   box-sizing: border-box;
   ${'' /* display: flex;
   justify-content: center; */}
@@ -296,7 +296,7 @@ const ProductListCompareBar = (props) => {
         <Row2>
           <button
             onClick={() => {
-              props.history.push('/test');
+              props.history.push('/compare');
             }}
           >
             前往比較表

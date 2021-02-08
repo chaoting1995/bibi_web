@@ -19,7 +19,6 @@ const QueueAnimA = styled(QueueAnim)`
 const ProductCard = styled.div`
   ${({ index }) => index};
   ${'' /* background-color: #faf; */}
-
   cursor: pointer;
   box-sizing: border-box;
   margin-top: 15px;
@@ -51,6 +50,13 @@ const ProductCard = styled.div`
   button:active {
     background-color: rgb(165, 165, 165);
     color: #fff;
+  }
+  .alreadyAdd {
+    background-color: rgb(165, 165, 165);
+    color: #fff;
+    &:hover {
+      color: #000;
+    }
   }
 `;
 
@@ -117,7 +123,7 @@ const ProductListCards = (props) => {
           //秀出篩選後的商品清單
           return (
             <QueueAnimA delay={50} className="queue-simple">
-              <ProductCard key={item.product_id}>
+              <ProductCard key={item.product_id} compareList={compareList}>
                 <ProductImg>
                   <img src={item.product_title_image} alt=""></img>
                   <div>
@@ -129,6 +135,11 @@ const ProductListCards = (props) => {
                 <ProductPrice>NT${item.product_price}</ProductPrice>
                 <button
                   type="button"
+                  class={
+                    compareList.map((item) => item.id).includes(item.product_id)
+                      ? 'alreadyAdd'
+                      : ''
+                  }
                   onClick={() => {
                     compareList.map((e) => e.id).includes(item.product_id)
                       ? handleRemoveFromCompare(
@@ -148,11 +159,11 @@ const ProductListCards = (props) => {
                     .map((item) => item.id)
                     .includes(item.product_id) ? (
                     <div>
-                      <span>v</span>已加入比較表
+                      <span>✓ </span>已加入比較表
                     </div>
                   ) : (
                     <div>
-                      <span>+</span>加入比較表
+                      <span>＋ </span>加入比較表
                     </div>
                   )}
                 </button>

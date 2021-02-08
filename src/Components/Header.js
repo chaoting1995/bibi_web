@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-//-----------------------匯入icon--------------------------//
+import { withRouter } from 'react-router-dom';
 
+//-----------------------匯入icon--------------------------//
 import { ReactComponent as Logo } from '../images/logo.svg';
 //-----------------------style---------------------------//
 const HeaderWrap = styled.header`
@@ -26,7 +27,8 @@ const HeaderWrap = styled.header`
   }
   h2 {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
+    cursor: pointer;
   }
   div {
     display: flex;
@@ -37,6 +39,7 @@ const HeaderWrap = styled.header`
 //---------------------component------------------------//
 
 const Header = (props) => {
+  const { currentPage } = props;
   return (
     <>
       <HeaderWrap>
@@ -44,10 +47,17 @@ const Header = (props) => {
           <Logo />
           <h1>電腦比比</h1>
         </div>
-        {/* <h2>前往比較表</h2> */}
+        <h2
+          onClick={() => {
+            if (currentPage === 'home') props.history.push('/compare');
+            if (currentPage === 'compare') props.history.push('/');
+          }}
+        >
+          {currentPage === 'home' ? '比較表' : '回首頁'}
+        </h2>
       </HeaderWrap>
     </>
   );
 };
 
-export default Header;
+export default withRouter(Header);

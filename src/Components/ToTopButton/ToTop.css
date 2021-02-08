@@ -1,0 +1,13 @@
+html,
+body {
+  height: 100%;
+}
+
+.long {
+  width: 100%;
+  background-color: #010e19;
+}
+
+.container {
+  height: 400px;
+}

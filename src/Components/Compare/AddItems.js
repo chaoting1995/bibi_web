@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 // import { ReactComponent as SelectIcon } from '../../images/search_icon.svg';
@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 //包輸入框
 const AddSelectWap = styled.div`
   ${'' /* display: flex; */}
-  width: 139px;
-  ${'' /* width: 100%; */}
+  ${'' /* width: 139px; */}
+  width: 100%;
   ${'' /* margin: 0 10px 0 10px; */}
   position: relative;
   box-sizing: border-box;
@@ -27,7 +27,7 @@ const AddSelectWap = styled.div`
       border: ${({ addStates }) =>
         Object.keys(addStates).length
           ? '1px solid #507199;'
-          : '1px solid #dfdfdf'};
+          : 'g1px solid #dfdfdf'};
     }
     &:focus ~ ul {
       ${'' /* display: block; */}
@@ -44,8 +44,8 @@ const AddOptions = styled.ul`
   opacity: 0;
   position: absolute;
   top: 39px;
-  width: 139px;
-  max-height: 160px;
+  width: 138px;
+  ${'' /* max-height: 160px; */}
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -76,10 +76,13 @@ const AddOptions = styled.ul`
 `;
 //下拉式選單的文字內容
 const SelectText = styled.span`
+  pointer-events: none; /* 穿透屬性*/
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 16px;
+  user-select: none;
+  cursor: pointer;
   color: ${({ addStates }) =>
     Object.keys(addStates).length ? '#000' : '#b8b8b8'};
 `;
@@ -144,6 +147,7 @@ const AddItems = (props) => {
                 key={index}
                 onClick={() => {
                   handleAddCompareItems(item[0]);
+                  console.log('item[0]', item[0]);
                 }}
               >
                 <RemoveButton>+</RemoveButton>

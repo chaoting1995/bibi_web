@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled from '@emotion/styled';
 import { getProductData } from '../utils/getProductData';
-import {
-  compareItems,
-  addItems,
-} from '../Components/Compare/CompareItems/compareItems';
+import { compareItems } from '../Components/Compare/CompareItems/compareItems';
 //---------------匯入子元件------------------//
 
 import CompareBox from '../Components/Compare/CompareBox';
@@ -32,7 +29,8 @@ const Table = styled.table`
   }
   td:nth-of-type(1),
   th:nth-of-type(1) {
-    width: 150px;
+    ${'' /* box-sizing: border-box; */}
+    width: 149px;
     padding: 20px 20px;
   }
   td:nth-of-type(1) > div {
@@ -46,6 +44,9 @@ const Table = styled.table`
   tr:nth-of-type(1) > th:nth-of-type(1) {
     padding: 5px 5px;
     ${'' /* width: 61px; */}
+  }
+  tr:hover > td:nth-of-type(1) ~ td {
+    background-color: #f7f7f7;
   }
 `;
 
@@ -84,12 +85,15 @@ const FixedWrap = styled.div`
 //---------------component------------------//
 const ComparePage = (props) => {
   //--------------------state-----------------------//
-
   const [compareInput] = useState('');
+  //商品資料
   const [productData, setProductData] = useState([]);
+  //產品資訊欄
   const [itemsState, setItemsState] = useState(compareItems);
+  //「被移除的產品資訊欄」的暫存區
   const [addStates, setAddStates] = useState('');
-  const { compareList } = props;
+  // 待比較清單、當前頁面
+  const { compareList, setCurrentPage } = props;
 
   //--------------------fetch-----------------------//
 
@@ -108,43 +112,57 @@ const ComparePage = (props) => {
   }, [getProductDataInSetState]);
 
   //---------------handle------------------//
+  //設定「當前頁面」的狀態
+  useEffect(() => {
+    setCurrentPage('compare');
+  }, [setCurrentPage]);
+
   // 移除指定產品資訊欄位
   const handleRemoveCompareItems = (key) => {
-    let changeItems = { ...itemsState };
-    addItems[key] = changeItems[key];
-    setAddStates(addItems);
-    delete changeItems[key];
-    setItemsState(changeItems);
-    console.log('addStates', addStates);
+    const addItemIntoAddState = { ...itemsState };
+    //項目存進「addState」
+    setAddStates((prevState) => ({
+      [key]: addItemIntoAddState[key],
+      ...prevState,
+    }));
+    //項目從「itemsState」移除
+    const removeItemFromItemsState = { ...itemsState };
+    delete removeItemFromItemsState[key];
+    setItemsState(removeItemFromItemsState);
   };
 
   // 增添指定產品資訊欄位
   const handleAddCompareItems = (key) => {
-    let changeItems = { ...addStates };
-    compareItems[key] = changeItems[key];
-    setItemsState(compareItems);
-    delete changeItems[key];
-    setAddStates(changeItems);
+    //項目存進「itemsState」
+    const addItemIntoItemsState = { ...addStates };
+    setItemsState((prevState) => ({
+      [key]: addItemIntoItemsState[key],
+      ...prevState,
+    }));
+    //項目從「addState」移除
+    const removeItemFromAddStates = { ...addStates };
+    delete removeItemFromAddStates[key];
+    setAddStates(removeItemFromAddStates);
   };
 
-  // //監聽
+  // 監聽
   window.addEventListener('scroll', () => {
     handleFixed();
   });
-
   // 動態fixed
-  function handleFixed(position = 'absolute') {
+  const handleFixed = useCallback((position = 'absolute') => {
     let thead = document.querySelector('.thead');
-    if (window.pageYOffset >= 69) {
+    // 產品列表頁，沒有「.thead元素」，加「 && thead」才不會出錯
+    if (window.pageYOffset >= 69 && thead) {
       thead.style.position = 'fixed';
       thead.style.top = '0';
       thead.style.boxShadow = '0px 4px 4px 0px rgb(0 0 0 / 50%)';
-    } else {
+    } else if (window.pageYOffset < 69 && thead) {
       thead.style.position = 'absolute';
       thead.style.top = '69.5px';
       thead.style.boxShadow = '0px 0px 0px 0px rgb(0 0 0 / 50%)';
     }
-  }
+  }, []);
   //---------------JSX------------------//
 
   return (
@@ -209,10 +227,10 @@ const ComparePage = (props) => {
                           (e) => e.product_id === compareList[item1].id
                         )[item[0]]}
                       {productData.length && item[0] === 'product_price'
-                        ? '元'
+                        ? ' 元'
                         : ''}
                       {productData.length && item[0] === 'product_weight'
-                        ? 'kg'
+                        ? ' kg'
                         : ''}
                     </td>
                   );
