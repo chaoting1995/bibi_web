@@ -212,6 +212,27 @@ const CompareBox = (props) => {
     setCompareInput('');
   }, [handleAddToCompare]);
 
+  //--------------------GA-----------------------//
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag() {
+  //   dataLayer.push(arguments);
+  // }
+  // gtag('js', new Date());
+  // gtag('config', 'UA-180233172-1');
+
+  // const selector = (id) => document.querySelector(id);
+  // let btnDownload = selector('#compare-btn');
+
+  // btnDownload.addEventListener(
+  //   'click',
+  //   function () {
+  //     gtag('event', 'click to compare page', {
+  //       event_category: 'home',
+  //       event_label: 'compare btn',
+  //     });
+  //   },
+  //   false
+  // );
   //--------------------JSX-----------------------//
   return (
     <>
@@ -295,6 +316,7 @@ const ProductListCompareBar = (props) => {
         </Row1>
         <Row2>
           <button
+            id="compare-btn"
             onClick={() => {
               props.history.push('/compare');
             }}

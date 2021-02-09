@@ -31,7 +31,20 @@ const Row1 = styled.div`
   display: flex;
   justify-content: center;
   z-index: 1;
+  position: ${({ currentStyle }) => currentStyle.position};
+  top: 0;
+  box-shadow: ${({ currentStyle }) => currentStyle.boxShadow};
 `;
+const scroll = {
+  fixed: {
+    position: 'fixed',
+    boxShadow: '0px 4px 4px 0px rgb(0 0 0 / 50%)',
+  },
+  relative: {
+    position: 'relative',
+    boxShadow: '0px 0px 0px 0px rgb(0 0 0 / 50%)',
+  },
+};
 
 //包Main、Aside
 const Row2 = styled.div`
@@ -68,9 +81,12 @@ function HomePage(props) {
   const [sort, setSort] = useState(0);
   // 頁數選擇
   const [page, setPage] = useState(0);
+  // 依卷軸決定 => 當前比較清單樣式
+  const [currentScroll, setCurrentScroll] = useState('relative');
   // 待比較清單、當前頁面
   // const [compareList, setCompareList] = useState([]);
   const { compareList, setCurrentPage } = props;
+
   //--------------------取得商品資料------------------------//
   // Declare
   const getProductDataInSetState = useCallback(async () => {
@@ -145,27 +161,21 @@ function HomePage(props) {
   window.addEventListener('scroll', () => {
     handleFixedCompareBar();
   });
-  // 動態fixed
+
+  // 依據scroll改變compareBar的style
   const handleFixedCompareBar = useCallback((position = 'absolute') => {
-    let compareBar = document.querySelector('.compareBar');
-    // 產品列表頁，沒有「.compareBar元素」，加「 && compareBar」才不會出錯
-    if (window.pageYOffset >= 69 && compareBar) {
-      compareBar.style.position = 'fixed';
-      compareBar.style.top = '0';
-      compareBar.style.boxShadow = '0px 4px 4px 0px rgb(0 0 0 / 50%)';
-    } else if (window.pageYOffset < 69 && compareBar) {
-      compareBar.style.position = 'relative';
-      compareBar.style.top = '0';
-      compareBar.style.boxShadow = '0px 0px 0px 0px rgb(0 0 0 / 50%)';
+    if (window.pageYOffset >= 69) {
+      setCurrentScroll('fixed');
+    } else if (window.pageYOffset < 69) {
+      setCurrentScroll('relative');
     }
   }, []);
-
   //--------------------------JSX--------------------------//
   return (
     <>
       {/* 待比較清單 */}
       <Row0>
-        <Row1 className="compareBar">
+        <Row1 currentStyle={scroll[currentScroll]}>
           <ProductListCompareBar
             compareList={compareList}
             // handleAddToCompare={handleAddToCompare}

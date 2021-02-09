@@ -41,11 +41,11 @@ function ToTopButton(props) {
   });
   // 動態fixed
   const handleAppearToTopButton = useCallback((position = 'absolute') => {
-    let toTopButton = document.querySelector('.toTopButton');
+    // let toTopButton = document.querySelector('.toTopButton');
     // 產品列表頁，沒有「.toTopButton元素」，加「 && toTopButton」才不會出錯
-    if (window.pageYOffset >= 200 && toTopButton) {
+    if (window.pageYOffset >= 200) {
       setToTop('visible');
-    } else if (window.pageYOffset < 69 && toTopButton) {
+    } else if (window.pageYOffset < 69) {
       setToTop('hidden');
     }
   }, []);
@@ -63,7 +63,6 @@ function ToTopButton(props) {
   return (
     <>
       <ToTopButtonWrap
-        className="toTopButton"
         toTop={toTop}
         onClick={() => {
           scrollToTop();

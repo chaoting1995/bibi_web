@@ -3,6 +3,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import 'normalize.css';
 //  制定路由
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+//GA
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-000000-01');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
@@ -27,7 +31,7 @@ function App() {
   //當前頁面
   const [currentPage, setCurrentPage] = useState('Home');
 
-  //--------------------取得比較清單------------------------//
+  //--------------------一掛載，就取得比較清單------------------------//
   const readCompareListFromLocalStorage = () => {
     const currentCompareList =
       JSON.parse(localStorage.getItem('compareList')) || [];
