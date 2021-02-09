@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 //  樣式重置
 import 'normalize.css';
 //  制定路由
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
 
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
