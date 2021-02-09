@@ -1,29 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.7b153e2c.chunk.css",
-    "main.js": "/static/js/main.f65d64a6.chunk.js",
-    "main.js.map": "/static/js/main.f65d64a6.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.75fc5255.js",
-    "runtime-main.js.map": "/static/js/runtime-main.75fc5255.js.map",
-    "static/css/2.679831fc.chunk.css": "/static/css/2.679831fc.chunk.css",
-    "static/js/2.d5b4b8c5.chunk.js": "/static/js/2.d5b4b8c5.chunk.js",
-    "static/js/2.d5b4b8c5.chunk.js.map": "/static/js/2.d5b4b8c5.chunk.js.map",
-    "static/js/3.f9912ebe.chunk.js": "/static/js/3.f9912ebe.chunk.js",
-    "static/js/3.f9912ebe.chunk.js.map": "/static/js/3.f9912ebe.chunk.js.map",
-    "index.html": "/index.html",
-    "service-worker.js": "/service-worker.js",
-    "service-worker.js.map": "/service-worker.js.map",
-    "static/css/2.679831fc.chunk.css.map": "/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.7b153e2c.chunk.css.map": "/static/css/main.7b153e2c.chunk.css.map",
-    "static/js/2.d5b4b8c5.chunk.js.LICENSE.txt": "/static/js/2.d5b4b8c5.chunk.js.LICENSE.txt",
-    "static/media/logo.17220ac9.svg": "/static/media/logo.17220ac9.svg",
-    "static/media/search_icon.19128dc8.svg": "/static/media/search_icon.19128dc8.svg"
+    "main.css": "/bibi_web/static/css/main.d73e4918.chunk.css",
+    "main.js": "/bibi_web/static/js/main.8ad8edbd.chunk.js",
+    "main.js.map": "/bibi_web/static/js/main.8ad8edbd.chunk.js.map",
+    "runtime-main.js": "/bibi_web/static/js/runtime-main.eaf52767.js",
+    "runtime-main.js.map": "/bibi_web/static/js/runtime-main.eaf52767.js.map",
+    "static/css/2.679831fc.chunk.css": "/bibi_web/static/css/2.679831fc.chunk.css",
+    "static/js/2.fa5e0ac4.chunk.js": "/bibi_web/static/js/2.fa5e0ac4.chunk.js",
+    "static/js/2.fa5e0ac4.chunk.js.map": "/bibi_web/static/js/2.fa5e0ac4.chunk.js.map",
+    "static/js/3.254ec87c.chunk.js": "/bibi_web/static/js/3.254ec87c.chunk.js",
+    "static/js/3.254ec87c.chunk.js.map": "/bibi_web/static/js/3.254ec87c.chunk.js.map",
+    "index.html": "/bibi_web/index.html",
+    "service-worker.js": "/bibi_web/service-worker.js",
+    "service-worker.js.map": "/bibi_web/service-worker.js.map",
+    "static/css/2.679831fc.chunk.css.map": "/bibi_web/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.d73e4918.chunk.css.map": "/bibi_web/static/css/main.d73e4918.chunk.css.map",
+    "static/js/2.fa5e0ac4.chunk.js.LICENSE.txt": "/bibi_web/static/js/2.fa5e0ac4.chunk.js.LICENSE.txt",
+    "static/media/Monster.15747330.svg": "/bibi_web/static/media/Monster.15747330.svg",
+    "static/media/TopArrow.028a0ce9.svg": "/bibi_web/static/media/TopArrow.028a0ce9.svg",
+    "static/media/logo.17220ac9.svg": "/bibi_web/static/media/logo.17220ac9.svg",
+    "static/media/search_icon.19128dc8.svg": "/bibi_web/static/media/search_icon.19128dc8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.75fc5255.js",
+    "static/js/runtime-main.eaf52767.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.d5b4b8c5.chunk.js",
-    "static/css/main.7b153e2c.chunk.css",
-    "static/js/main.f65d64a6.chunk.js"
+    "static/js/2.fa5e0ac4.chunk.js",
+    "static/css/main.d73e4918.chunk.css",
+    "static/js/main.8ad8edbd.chunk.js"
   ]
 }
