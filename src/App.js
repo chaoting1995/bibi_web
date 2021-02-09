@@ -12,9 +12,9 @@ import Header from './Components/Header';
 //頁尾
 import Footer from './Components/Footer';
 //頁面切換時，要用捲軸讓頁面回到最上方
-import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
+import ScrollToTop from './Components/ScrollToTop';
 //置頂鍵
-// import ScrollButton from './Components/ToTopButton/ScrollButton';
+import ToTopButton from './Components/ToTopButton';
 
 //--------------------個別頁面元件-----------------------//
 import HomePage from './Pages/HomePage';
@@ -74,7 +74,7 @@ function App() {
           {/* 路由設定開始 */}
 
           <ScrollToTop>
-            {/* <ScrollButton /> */}
+            <ToTopButton />
 
             <Switch>
               {/* 放"page資料夾"內的元件 */}
