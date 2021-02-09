@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bibi_web/static/css/main.19889e9c.chunk.css",
-    "main.js": "/bibi_web/static/js/main.5ff7048d.chunk.js",
-    "main.js.map": "/bibi_web/static/js/main.5ff7048d.chunk.js.map",
+    "main.js": "/bibi_web/static/js/main.a3f851cf.chunk.js",
+    "main.js.map": "/bibi_web/static/js/main.a3f851cf.chunk.js.map",
     "runtime-main.js": "/bibi_web/static/js/runtime-main.4ffb64be.js",
     "runtime-main.js.map": "/bibi_web/static/js/runtime-main.4ffb64be.js.map",
     "static/css/2.679831fc.chunk.css": "/bibi_web/static/css/2.679831fc.chunk.css",
@@ -16,6 +16,7 @@
     "static/css/2.679831fc.chunk.css.map": "/bibi_web/static/css/2.679831fc.chunk.css.map",
     "static/css/main.19889e9c.chunk.css.map": "/bibi_web/static/css/main.19889e9c.chunk.css.map",
     "static/js/2.408eed86.chunk.js.LICENSE.txt": "/bibi_web/static/js/2.408eed86.chunk.js.LICENSE.txt",
+    "static/media/TopArrow.82abd65d.svg": "/bibi_web/static/media/TopArrow.82abd65d.svg",
     "static/media/logo.17220ac9.svg": "/bibi_web/static/media/logo.17220ac9.svg",
     "static/media/search_icon.19128dc8.svg": "/bibi_web/static/media/search_icon.19128dc8.svg"
   },
@@ -24,6 +25,6 @@
     "static/css/2.679831fc.chunk.css",
     "static/js/2.408eed86.chunk.js",
     "static/css/main.19889e9c.chunk.css",
-    "static/js/main.5ff7048d.chunk.js"
+    "static/js/main.a3f851cf.chunk.js"
   ]
 }
