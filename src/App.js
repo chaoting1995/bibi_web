@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import 'normalize.css';
 //  制定路由
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
@@ -77,24 +78,26 @@ function App() {
             {/* <ScrollButton /> */}
             <Switch>
               {/* 放"page資料夾"內的元件 */}
-              <Route exact path="/">
-                <HomePage
-                  setCurrentPage={setCurrentPage}
-                  compareList={compareList}
-                  setCompareList={setCompareList}
-                  handleAddToCompare={handleAddToCompare}
-                  handleRemoveFromCompare={handleRemoveFromCompare}
-                />
-              </Route>
-              <Route exact path="/compare">
-                <ComparePage
-                  setCurrentPage={setCurrentPage}
-                  compareList={compareList}
-                  setCompareList={setCompareList}
-                  handleAddToCompare={handleAddToCompare}
-                  handleRemoveFromCompare={handleRemoveFromCompare}
-                />
-              </Route>
+              <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <Route exact path="/">
+                  <HomePage
+                    setCurrentPage={setCurrentPage}
+                    compareList={compareList}
+                    setCompareList={setCompareList}
+                    handleAddToCompare={handleAddToCompare}
+                    handleRemoveFromCompare={handleRemoveFromCompare}
+                  />
+                </Route>
+                <Route exact path="/compare">
+                  <ComparePage
+                    setCurrentPage={setCurrentPage}
+                    compareList={compareList}
+                    setCompareList={setCompareList}
+                    handleAddToCompare={handleAddToCompare}
+                    handleRemoveFromCompare={handleRemoveFromCompare}
+                  />
+                </Route>
+              </BrowserRouter>
             </Switch>
           </ScrollToTop>
           {/* 路由設定結束 */}
