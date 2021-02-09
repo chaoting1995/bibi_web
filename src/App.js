@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 //  樣式重置
 import 'normalize.css';
 //  制定路由
-import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
@@ -64,7 +64,7 @@ function App() {
     //--------------------路由表-----------------------//
 
     // <Router>元件一定要放在最外層
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <>
         {/* 放切頁時不重新渲染的部份 s*/}
         <Container>
@@ -75,30 +75,29 @@ function App() {
 
           <ScrollToTop>
             {/* <ScrollButton /> */}
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
-              <Switch>
-                {/* 放"page資料夾"內的元件 */}
 
-                <Route exact path="/">
-                  <HomePage
-                    setCurrentPage={setCurrentPage}
-                    compareList={compareList}
-                    setCompareList={setCompareList}
-                    handleAddToCompare={handleAddToCompare}
-                    handleRemoveFromCompare={handleRemoveFromCompare}
-                  />
-                </Route>
-                <Route exact path="/compare">
-                  <ComparePage
-                    setCurrentPage={setCurrentPage}
-                    compareList={compareList}
-                    setCompareList={setCompareList}
-                    handleAddToCompare={handleAddToCompare}
-                    handleRemoveFromCompare={handleRemoveFromCompare}
-                  />
-                </Route>
-              </Switch>
-            </BrowserRouter>
+            <Switch>
+              {/* 放"page資料夾"內的元件 */}
+
+              <Route exact path="/">
+                <HomePage
+                  setCurrentPage={setCurrentPage}
+                  compareList={compareList}
+                  setCompareList={setCompareList}
+                  handleAddToCompare={handleAddToCompare}
+                  handleRemoveFromCompare={handleRemoveFromCompare}
+                />
+              </Route>
+              <Route exact path="/compare">
+                <ComparePage
+                  setCurrentPage={setCurrentPage}
+                  compareList={compareList}
+                  setCompareList={setCompareList}
+                  handleAddToCompare={handleAddToCompare}
+                  handleRemoveFromCompare={handleRemoveFromCompare}
+                />
+              </Route>
+            </Switch>
           </ScrollToTop>
           {/* 路由設定結束 */}
 
