@@ -43,19 +43,15 @@ const ProductCard = styled.div`
     }
     position: absolute;
     bottom: 0;
-  }
-  button:hover {
-    background-color: rgb(243, 243, 243);
-  }
-  button:active {
-    background-color: rgb(165, 165, 165);
-    color: #fff;
+    &:hover {
+      background-color: rgb(243, 243, 243);
+    }
   }
   .alreadyAdd {
     background-color: rgb(165, 165, 165);
     color: #fff;
     &:hover {
-      color: #000;
+      background-color: rgb(135, 135, 135);
     }
   }
 `;

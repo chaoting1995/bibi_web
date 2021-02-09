@@ -11,8 +11,8 @@ export function getProductData({
   if (search) query += `search=${search}`;
   if (filterBrand === 0) query += `filterBrand=${0}`;
   if (filterBrand > 0) query += `filterBrand=${filterBrand}`;
-  if (filterCondition)
-    query += `filterCondition=${JSON.stringify(filterCondition)}`;
+  // if (filterCondition)
+  // query += `filterCondition=${JSON.stringify(filterCondition)}`;
   if (sort) query += `&sort=${sort}`;
   if (frontPrice || backPrice)
     query += `&frontPrice=${frontPrice}&backPrice=${backPrice}`;

@@ -1,5 +1,6 @@
 {
   "name": "bibi_web",
+  "homepage": "https://chaoting1995.github.io/bibi_web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
