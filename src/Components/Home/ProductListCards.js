@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: -5px;
-  min-height: 360px;
+  min-height: 450px;
 `;
 
 const QueueAnimA = styled(QueueAnim)`
