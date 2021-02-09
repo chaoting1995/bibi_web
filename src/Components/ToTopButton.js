@@ -26,7 +26,7 @@ const ToTopButtonWrap = styled.div`
     opacity: 1;
   } */}
   svg {
-    width: 42px;
+    width: 37px;
     margin-right: 1px;
   }
 `;
