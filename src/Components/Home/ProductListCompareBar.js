@@ -5,6 +5,24 @@ import { getProductData } from '../../utils/getProductData';
 import styled from '@emotion/styled';
 import { ReactComponent as SearchIcon } from '../../images/search_icon.svg';
 
+//--------------------GA-----------------------//
+// import { initGA, logPageView } from '../utils/analytics'
+// export default class Layout extends React.Component {
+//   componentDidMount () {
+//     if (!window.GA_INITIALIZED) {
+//       initGA()
+//       window.GA_INITIALIZED = true
+//     }
+//     logPageView()
+//   }
+//   render () {
+//     return (
+//       <div>
+//         {this.props.children}
+//       </div>
+//     )
+//   }
+// }
 //--------------------style-----------------------//
 
 // CompareInputWap背景灰色那塊
