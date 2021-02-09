@@ -4,9 +4,7 @@ import 'normalize.css';
 //  制定路由
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //GA
-import ReactGA from 'react-ga'
-ReactGA.initialize('UA-000000-01');
-ReactGA.pageview(window.location.pathname + window.location.search);
+import ReactGA from 'react-ga';
 
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
@@ -23,6 +21,9 @@ import ToTopButton from './Components/ToTopButton';
 //--------------------個別頁面元件-----------------------//
 import HomePage from './Pages/HomePage';
 import ComparePage from './Pages/ComparePage';
+//GA
+ReactGA.initialize('UA-000000-01');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 //--------------------Component-----------------------//
 function App() {
