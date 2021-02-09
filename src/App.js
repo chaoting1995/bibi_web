@@ -76,9 +76,10 @@ function App() {
 
           <ScrollToTop>
             {/* <ScrollButton /> */}
-            <Switch>
-              {/* 放"page資料夾"內的元件 */}
-              <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
+              <Switch>
+                {/* 放"page資料夾"內的元件 */}
+
                 <Route exact path="/">
                   <HomePage
                     setCurrentPage={setCurrentPage}
@@ -97,8 +98,8 @@ function App() {
                     handleRemoveFromCompare={handleRemoveFromCompare}
                   />
                 </Route>
-              </BrowserRouter>
-            </Switch>
+              </Switch>
+            </BrowserRouter>
           </ScrollToTop>
           {/* 路由設定結束 */}
 
