@@ -18,7 +18,8 @@ export function getProductData({
     query += `&frontPrice=${frontPrice}&backPrice=${backPrice}`;
   if (page) query += `&page=${page}`;
 
-  const url = `http://35.194.203.197/search_name.php?${query}`;
+  // const url = `http://35.194.203.197/search_name.php?${query}`;
+  const url = `http://laptopbibi.cf/summary.php?${query}`;
   const request = new Request(url, {
     method: 'GET',
     headers: new Headers({
