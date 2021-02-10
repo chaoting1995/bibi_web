@@ -22,7 +22,7 @@ import ToTopButton from './Components/ToTopButton';
 import HomePage from './Pages/HomePage';
 import ComparePage from './Pages/ComparePage';
 //GA
-ReactGA.initialize('UA-000000-01');
+ReactGA.initialize('UA-180233172-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 //--------------------Component-----------------------//
