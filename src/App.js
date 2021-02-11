@@ -22,7 +22,7 @@ import ToTopButton from './Components/ToTopButton';
 //--------------------個別頁面元件-----------------------//
 import HomePage from './Pages/HomePage';
 import ComparePage from './Pages/ComparePage';
-import ProductList from './Pages/testPage/pages/ProductList';
+// import ProductList from './Pages/testPage/pages/ProductList';
 
 //-------------------------GA---------------------------//
 
@@ -106,7 +106,7 @@ function App() {
                 />
               </Route>
               <Route exact path="/test">
-                <ProductList />
+                {/* <ProductList /> */}
               </Route>
             </Switch>
           </ScrollToTop>
