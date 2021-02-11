@@ -24,10 +24,15 @@ import HomePage from './Pages/HomePage';
 import ComparePage from './Pages/ComparePage';
 // import ProductList from './Pages/testPage/pages/ProductList';
 
-//-------------------------GA---------------------------//
-
-ReactGA.initialize('UA-180233172-1');
-ReactGA.pageview(window.location.pathname + window.location.search);
+// //-------------------------GA---------------------------//
+// ReactGA.initialize('UA-180233172-1');
+// ReactGA.pageview(window.location.pathname + window.location.search);
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory();
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 //--------------------Component-----------------------//
 function App() {
@@ -35,6 +40,13 @@ function App() {
   const [compareList, setCompareList] = useState([]);
   //當前頁面
   const [currentPage, setCurrentPage] = useState('Home');
+
+  //-------------------------GA---------------------------//
+  useEffect(() => {
+    ReactGA.initialize('UA-180233172-1');
+    // ReactGA.pageview(window.location.pathname);
+    // ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   //----------localStorage:一掛載，就取得比較清單---------------//
   const readCompareListFromLocalStorage = () => {
@@ -73,7 +85,7 @@ function App() {
     //--------------------路由表-----------------------//
 
     // <Router>元件一定要放在最外層
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.PUBLIC_URL} history={history}>
       <>
         {/* 放切頁時不重新渲染的部份 s*/}
         <Container>

@@ -17,7 +17,7 @@ import ProductListCards from '../Components/Home/ProductListCards';
 // 商品清單-頁面選擇功能列
 import ProductListPagination from '../Components/Home/ProductListPagination';
 
-import withTracker from '../utils/withTracker';
+// import withTracker from '../utils/withTracker';
 //--------------------style------------------------//
 
 const Row0 = styled.div`
@@ -102,9 +102,8 @@ function HomePage(props) {
     });
     // const rows = await data.rows;
     setProductData(data[0].rows);
-    setProductQuantity([...data[2].totalRows]);
-    // console.log('data ', data.rows);
-    // console.log('setProductData', setProductData);
+    setProductQuantity(data[2].totalRows);
+    // console.log('productData', productData);
   }, [search, filterBrand, priceRange, sort, filterCondition, page]);
   // componentDidMount，一掛載就GET資料
   // console.log('productData.length', productData.length);
@@ -196,7 +195,6 @@ function HomePage(props) {
             setFilterCondition={setFilterCondition}
             handleQueryReset={handleQueryReset}
           />
-          {console.log('productData', productData && productData)}
         </Aside>
         {/* 價格排序功能列 */}
         <Main>
@@ -218,4 +216,5 @@ function HomePage(props) {
     </>
   );
 }
-export default withTracker(HomePage);
+// export default withTracker(HomePage);
+export default HomePage;

@@ -25,7 +25,7 @@ const QueueAnimA = styled(QueueAnim)`
 const ProductCard = styled.div`
   ${({ index }) => index};
   ${'' /* background-color: #faf; */}
-  cursor: pointer;
+
   box-sizing: border-box;
   margin-top: 15px;
   height: 338px;
@@ -67,7 +67,7 @@ const ProductImg = styled.div`
   overflow: hidden;
   transition: 0.5s;
   height: 170px;
-
+  cursor: pointer;
   img {
     width: 100%;
     height: 100%;
@@ -159,8 +159,12 @@ const ProductListCards = (props) => {
           productData.map((item, index) => {
             //秀出篩選後的商品清單
             return (
-              <QueueAnimA delay={50} className="queue-simple">
-                <ProductCard key={item.product_id} compareList={compareList}>
+              <QueueAnimA
+                delay={50}
+                className="queue-simple"
+                key={item.product_id}
+              >
+                <ProductCard compareList={compareList}>
                   <ProductImg onClick={() => handleOpenModal(item.product_id)}>
                     <img src={item.product_title_image} alt=""></img>
                     <div>
@@ -172,7 +176,7 @@ const ProductListCards = (props) => {
                   <ProductPrice>NT${item.product_price}</ProductPrice>
                   <button
                     type="button"
-                    class={
+                    className={
                       compareList
                         .map((item) => item.id)
                         .includes(item.product_id)
