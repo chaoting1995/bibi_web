@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // GA
 import ReactGA from 'react-ga';
 // 讓GA能讀取react-router
-import withTracker from './utils/withTracker';
+// import withTracker from './utils/withTracker';
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
 import Container from './Components/Container';
