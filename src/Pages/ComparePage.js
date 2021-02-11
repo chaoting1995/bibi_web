@@ -11,6 +11,7 @@ import AddItems from '../Components/Compare/AddItems';
 
 // import withTracker from '../utils/withTracker';
 import ReactGA from 'react-ga';
+
 //---------------style------------------//
 const Table = styled.table`
   width: 100%;
@@ -100,13 +101,11 @@ const ComparePage = (props) => {
   // 待比較清單、當前頁面
   const { compareList, setCurrentPage } = props;
 
-  //-----------------------GA--------------------------//
-
+  //--------------------GA+router--------------------------//
   useEffect(() => {
-    // ReactGA.initialize('UA-180233172-1');
-    // ReactGA.pageview(window.location.pathname);
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
+
   //--------------------fetch-----------------------//
 
   // Declare

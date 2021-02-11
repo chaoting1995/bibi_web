@@ -18,6 +18,8 @@ import ProductListCards from '../Components/Home/ProductListCards';
 import ProductListPagination from '../Components/Home/ProductListPagination';
 
 // import withTracker from '../utils/withTracker';
+import ReactGA from 'react-ga';
+
 //--------------------style------------------------//
 
 const Row0 = styled.div`
@@ -88,6 +90,12 @@ function HomePage(props) {
   const { compareList, setCurrentPage } = props;
   // 商品總數
   const [productQuantity, setProductQuantity] = useState(0);
+
+  //--------------------GA+router--------------------------//
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   //--------------------fetch:取得商品資料------------------------//
   // Declare
   const getProductDataInSetState = useCallback(async () => {
