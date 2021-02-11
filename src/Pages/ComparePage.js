@@ -6,6 +6,9 @@ import { compareItems } from '../Components/Compare/CompareItems/compareItems';
 
 import CompareBox from '../Components/Compare/CompareBox';
 import AddItems from '../Components/Compare/AddItems';
+
+import withTracker from './utils/withTracker';
+
 //---------------style------------------//
 const Table = styled.table`
   width: 100%;
@@ -248,4 +251,4 @@ const ComparePage = (props) => {
     </>
   );
 };
-export default ComparePage;
+export default withTracker(ComparePage);
