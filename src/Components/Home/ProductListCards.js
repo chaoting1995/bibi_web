@@ -6,7 +6,7 @@ import QueueAnim from 'rc-queue-anim';
 // 產品詳頁
 // import ProductDetailModal from './ProductDetailModal1';
 // import ProductDetailModal from './ProductDetailModal';
-import ProductDetailModal from './ProductDetailModal2';
+// import ProductDetailModal from './ProductDetailModal2';
 
 //--------------------style-----------------------//
 const Container = styled.div`
@@ -143,7 +143,7 @@ const ProductListCards = (props) => {
 
   return (
     <>
-      {modalController && (
+      {/* {modalController && (
         <ProductDetailModal
           setModalController={setModalController}
           modalController={modalController}
@@ -153,7 +153,7 @@ const ProductListCards = (props) => {
           handleAddToCompare={handleAddToCompare}
           handleRemoveFromCompare={handleRemoveFromCompare}
         ></ProductDetailModal>
-      )}
+      )} */}
       <Container>
         {productData &&
           productData.map((item, index) => {

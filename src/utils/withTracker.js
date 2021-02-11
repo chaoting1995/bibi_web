@@ -10,7 +10,7 @@ const withTracker = (WrappedComponent, options = {}) => {
     ReactGA.pageview(page);
   };
   const HOC = (props) => {
-    useEffect(() => trackPage(`MyTechBlog${props.location.pathname}`), [
+    useEffect(() => trackPage(`bibi_web${props.location.pathname}`), [
       props.location.pathname,
     ]);
     return <WrappedComponent {...props} />;

@@ -2,16 +2,51 @@
 export const otherItems = [
   {
     big_header: ['硬碟', 'product_storage'],
-    little_headers: ['1TB SSD', '56GB HDD', '512GB HDD', '1TB HDD'],
+    little_headers: [
+      '128GB SSD',
+      '256GB SSD',
+      '512GB SSD',
+      '1TB SSD',
+      '2TB SSD',
+      '128GB HDD',
+      '256GB HDD',
+      '56GB HDD',
+      '512GB HDD',
+      '1TB HDD',
+      '2TB HDD',
+    ],
   },
+
   {
     big_header: ['處理器', 'product_CPU'],
-    little_headers: ['CORE i5', 'CORE i7', 'Ryzen 5', 'Silicon M1'],
+    little_headers: [
+      'CORE i3',
+      'CORE i5',
+      'CORE i7',
+      'CORE i9',
+      'Ryzen 5',
+      'Ryzen 7',
+      'Silicon M1',
+    ],
   },
+
   {
     big_header: ['記憶體', 'product_memory'],
-    little_headers: ['8G', '16G'],
+    little_headers: [
+      '2GB',
+      '4GB',
+      '6GB',
+      '8G',
+      '12GB',
+      '16GB',
+      '20GB',
+      '24GB',
+      '32GB',
+      '48GB',
+      '64GB',
+    ],
   },
+
   {
     big_header: ['重量', 'product_weight'],
     little_headers: [
@@ -25,12 +60,15 @@ export const otherItems = [
   {
     big_header: ['電池容量', 'product_battery'],
     little_headers: [
+      '20Wh以下',
       '20-29Wh',
       '30-39Wh',
       '40-49Wh',
       '50-59Wh',
       '60-69Wh',
       '70-79Wh',
+      '80-89Wh',
+      '90-99Wh',
     ],
   },
 ];
