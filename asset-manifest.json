@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bibi_web/static/css/main.19889e9c.chunk.css",
-    "main.js": "/bibi_web/static/js/main.72cc2242.chunk.js",
-    "main.js.map": "/bibi_web/static/js/main.72cc2242.chunk.js.map",
+    "main.js": "/bibi_web/static/js/main.df03ef3c.chunk.js",
+    "main.js.map": "/bibi_web/static/js/main.df03ef3c.chunk.js.map",
     "runtime-main.js": "/bibi_web/static/js/runtime-main.1f6ed710.js",
     "runtime-main.js.map": "/bibi_web/static/js/runtime-main.1f6ed710.js.map",
     "static/css/2.679831fc.chunk.css": "/bibi_web/static/css/2.679831fc.chunk.css",
@@ -25,6 +25,6 @@
     "static/css/2.679831fc.chunk.css",
     "static/js/2.ed818972.chunk.js",
     "static/css/main.19889e9c.chunk.css",
-    "static/js/main.72cc2242.chunk.js"
+    "static/js/main.df03ef3c.chunk.js"
   ]
 }
