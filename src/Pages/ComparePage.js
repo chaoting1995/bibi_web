@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled from '@emotion/styled';
 import { getProductData } from '../utils/getProductData';
 import { compareItems } from '../Components/Compare/CompareItems/compareItems';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 //---------------匯入子元件------------------//
 
@@ -10,7 +10,7 @@ import CompareBox from '../Components/Compare/CompareBox';
 import AddItems from '../Components/Compare/AddItems';
 
 // import withTracker from '../utils/withTracker';
-
+import ReactGA from 'react-ga';
 //---------------style------------------//
 const Table = styled.table`
   width: 100%;
@@ -100,6 +100,13 @@ const ComparePage = (props) => {
   // 待比較清單、當前頁面
   const { compareList, setCurrentPage } = props;
 
+  //-----------------------GA--------------------------//
+
+  useEffect(() => {
+    // ReactGA.initialize('UA-180233172-1');
+    // ReactGA.pageview(window.location.pathname);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   //--------------------fetch-----------------------//
 
   // Declare
@@ -253,6 +260,6 @@ const ComparePage = (props) => {
     </>
   );
 };
-// export default ComparePage;
-export default withRouter(ComparePage);
+export default ComparePage;
+// export default withRouter(ComparePage);
 // export default withTracker(ComparePage);

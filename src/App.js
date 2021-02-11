@@ -25,7 +25,6 @@ import ComparePage from './Pages/ComparePage';
 import ReactGA from 'react-ga';
 // 讓GA能讀取react-router
 // import withTracker from './utils/withTracker';
-
 import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 history.listen((location) => {
