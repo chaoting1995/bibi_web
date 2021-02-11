@@ -65,7 +65,7 @@ const Aside = styled.aside`
 
 //--------------------component-----------------------//
 function HomePage(props) {
-  //--------------------建立狀態-----------------------//
+  //--------------------state & props-----------------------//
   //商品資料
   const [productData, setProductData] = useState([]);
   //搜尋品牌或型號
@@ -80,14 +80,14 @@ function HomePage(props) {
   //價格排序
   const [sort, setSort] = useState(0);
   // 頁數選擇
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   // 依卷軸決定 => 當前比較清單樣式
   const [currentScroll, setCurrentScroll] = useState('relative');
   // 待比較清單、當前頁面
-  // const [compareList, setCompareList] = useState([]);
   const { compareList, setCurrentPage } = props;
-
-  //--------------------取得商品資料------------------------//
+  // 商品總數
+  const [productQuantity, setProductQuantity] = useState(0);
+  //--------------------fetch:取得商品資料------------------------//
   // Declare
   const getProductDataInSetState = useCallback(async () => {
     const data = await getProductData({
@@ -99,8 +99,11 @@ function HomePage(props) {
       sort,
       page,
     });
-    setProductData(data);
-    // console.log('取商品資料', data);
+    // const rows = await data.rows;
+    setProductData(data[0].rows);
+    setProductQuantity([...data[2].totalRows]);
+    // console.log('data ', data.rows);
+    // console.log('setProductData', setProductData);
   }, [search, filterBrand, priceRange, sort, filterCondition, page]);
   // componentDidMount，一掛載就GET資料
   // console.log('productData.length', productData.length);
@@ -176,12 +179,7 @@ function HomePage(props) {
       {/* 待比較清單 */}
       <Row0>
         <Row1 currentStyle={scroll[currentScroll]}>
-          <ProductListCompareBar
-            compareList={compareList}
-            // handleAddToCompare={handleAddToCompare}
-            // handleRemoveFromCompare={handleRemoveFromCompare}
-            {...props}
-          />
+          <ProductListCompareBar compareList={compareList} {...props} />
         </Row1>
       </Row0>
 
@@ -197,20 +195,19 @@ function HomePage(props) {
             setFilterCondition={setFilterCondition}
             handleQueryReset={handleQueryReset}
           />
+          {console.log('productData', productData && productData)}
         </Aside>
         {/* 價格排序功能列 */}
         <Main>
           <ProductListSortByPrice
             sort={sort}
             setSort={setSort}
-            productQuantity={productData.length}
+            productQuantity={productQuantity}
           />
           {/* 商品列表 */}
           <ProductListCards
             productData={productData}
             compareList={compareList}
-            // handleAddToCompare={handleAddToCompare}
-            // handleRemoveFromCompare={handleRemoveFromCompare}
             {...props}
           />
           {/* 分頁功能列 */}

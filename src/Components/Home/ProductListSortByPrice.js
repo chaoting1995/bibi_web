@@ -26,10 +26,8 @@ const ProductListSortByPrice = (props) => {
 
   //價格預設排列
   const priceDefault = () => setSort(0);
-
   //價格由低到高
   const priceASC = () => setSort(1);
-
   //價格由高到低
   const priceDESC = () => setSort(2);
 

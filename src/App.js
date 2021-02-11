@@ -3,9 +3,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import 'normalize.css';
 //  制定路由
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-//GA
+// GA
 import ReactGA from 'react-ga';
-
+// 讓GA能讀取react-router
+import withTracker from './utils/withTracker';
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
 import Container from './Components/Container';
@@ -21,7 +22,10 @@ import ToTopButton from './Components/ToTopButton';
 //--------------------個別頁面元件-----------------------//
 import HomePage from './Pages/HomePage';
 import ComparePage from './Pages/ComparePage';
-//GA
+import ProductList from './Pages/testPage/pages/ProductList';
+
+//-------------------------GA---------------------------//
+
 ReactGA.initialize('UA-180233172-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -32,7 +36,7 @@ function App() {
   //當前頁面
   const [currentPage, setCurrentPage] = useState('Home');
 
-  //--------------------一掛載，就取得比較清單------------------------//
+  //----------localStorage:一掛載，就取得比較清單---------------//
   const readCompareListFromLocalStorage = () => {
     const currentCompareList =
       JSON.parse(localStorage.getItem('compareList')) || [];
@@ -83,7 +87,6 @@ function App() {
 
             <Switch>
               {/* 放"page資料夾"內的元件 */}
-
               <Route exact path="/">
                 <HomePage
                   setCurrentPage={setCurrentPage}
@@ -101,6 +104,9 @@ function App() {
                   handleAddToCompare={handleAddToCompare}
                   handleRemoveFromCompare={handleRemoveFromCompare}
                 />
+              </Route>
+              <Route exact path="/test">
+                <ProductList />
               </Route>
             </Switch>
           </ScrollToTop>

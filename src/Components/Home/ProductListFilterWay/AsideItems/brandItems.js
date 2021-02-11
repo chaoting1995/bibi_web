@@ -2,9 +2,8 @@
 export const brandItems = {
   big_header: '品牌',
   little_headers: [
-    // ['所有', ''],
-    ['所有', -1],
-    ['ASUS 華碩', 0],
+    ['所有', 0],
+    ['ASUS 華碩', 17],
     ['acer 宏碁', 1],
     ['Apple 蘋果', 2],
     ['MSI 微星', 3],

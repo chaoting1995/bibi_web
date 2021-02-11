@@ -214,7 +214,7 @@ const CompareBox = (props) => {
   // Declare
   const getProductDataInSetState = useCallback(async () => {
     const data = await getProductData({ search: compareInput });
-    setProductData(data);
+    setProductData(data[0].rows);
     // console.log('取商品資料', data);
     // console.log('productData', productData);
   }, [compareInput]);

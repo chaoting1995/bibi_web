@@ -100,7 +100,7 @@ const ComparePage = (props) => {
   // Declare
   const getProductDataInSetState = useCallback(async () => {
     const data = await getProductData({ search: compareInput });
-    setProductData(data);
+    setProductData(data[0].rows);
     // console.log('取商品資料', data);
     // console.log('productData', productData);
   }, [compareInput]);
@@ -222,6 +222,9 @@ const ComparePage = (props) => {
                 if (compareList[item1]) {
                   return (
                     <td key={item1}>
+                      {productData.length && item[0] === 'product_price'
+                        ? 'NT$ '
+                        : ''}
                       {productData.length &&
                         productData.find(
                           (e) => e.product_id === compareList[item1].id

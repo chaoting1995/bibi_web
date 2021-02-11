@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
 import QueueAnim from 'rc-queue-anim';
+
+//--------------------匯入子元件-----------------------//
+// 產品詳頁
+// import ProductDetailModal from './ProductDetailModal1';
+// import ProductDetailModal from './ProductDetailModal';
+import ProductDetailModal from './ProductDetailModal2';
 
 //--------------------style-----------------------//
 const Container = styled.div`
@@ -106,67 +112,104 @@ const ProductPrice = styled.div`
 
 //--------------------component-----------------------//
 const ProductListCards = (props) => {
+  //--------------------state&props-----------------------//
+  // 商品詳頁-光箱開關
+  const [modalController, setModalController] = useState(false);
+  // snip用，將來切割好API再用
+  // eslint-disable-next-line no-unused-vars
+  const [detailRequest, setDetailRequest] = useState(false);
   const {
     productData,
     compareList,
     handleAddToCompare,
     handleRemoveFromCompare,
   } = props;
+  const [currentProductData, setCurrentProductData] = useState(false);
+  //-----------------------handle--------------------------//
+
+  const handleOpenModal = useCallback(
+    (id) => {
+      // 控制指示器
+      // setDetailRequest(true);
+      // Display Modal and Loading Icon
+      setModalController(true);
+      // 當前商品詳細資料
+      setCurrentProductData(productData.find((e) => e.product_id === id));
+    },
+    [productData]
+  );
+
+  //--------------------------JSX-----------------------------//
+
   return (
     <>
+      {modalController && (
+        <ProductDetailModal
+          setModalController={setModalController}
+          modalController={modalController}
+          detailRequest={detailRequest}
+          currentProductData={currentProductData}
+          compareList={compareList}
+          handleAddToCompare={handleAddToCompare}
+          handleRemoveFromCompare={handleRemoveFromCompare}
+        ></ProductDetailModal>
+      )}
       <Container>
-        {productData.map((item, index) => {
-          //秀出篩選後的商品清單
-          return (
-            <QueueAnimA delay={50} className="queue-simple">
-              <ProductCard key={item.product_id} compareList={compareList}>
-                <ProductImg>
-                  <img src={item.product_title_image} alt=""></img>
-                  <div>
-                    <h1>快速瀏覽</h1>
-                  </div>
-                </ProductImg>
-                <ProductBrand>{item.product_brand}</ProductBrand>
-                <ProductType>{item.product_name}</ProductType>
-                <ProductPrice>NT${item.product_price}</ProductPrice>
-                <button
-                  type="button"
-                  class={
-                    compareList.map((item) => item.id).includes(item.product_id)
-                      ? 'alreadyAdd'
-                      : ''
-                  }
-                  onClick={() => {
-                    compareList.map((e) => e.id).includes(item.product_id)
-                      ? handleRemoveFromCompare(
-                          compareList
-                            .map((e) => e.id)
-                            .findIndex((e) => e === item.product_id)
-                        )
-                      : handleAddToCompare(
-                          item.product_id,
-                          item.product_title_image,
-                          item.product_brand,
-                          item.product_name
-                        );
-                  }}
-                >
-                  {compareList
-                    .map((item) => item.id)
-                    .includes(item.product_id) ? (
+        {productData &&
+          productData.map((item, index) => {
+            //秀出篩選後的商品清單
+            return (
+              <QueueAnimA delay={50} className="queue-simple">
+                <ProductCard key={item.product_id} compareList={compareList}>
+                  <ProductImg onClick={() => handleOpenModal(item.product_id)}>
+                    <img src={item.product_title_image} alt=""></img>
                     <div>
-                      <span>✓ </span>已加入比較表
+                      <h1>快速瀏覽</h1>
                     </div>
-                  ) : (
-                    <div>
-                      <span>＋ </span>加入比較表
-                    </div>
-                  )}
-                </button>
-              </ProductCard>
-            </QueueAnimA>
-          );
-        })}
+                  </ProductImg>
+                  <ProductBrand>{item.product_brand}</ProductBrand>
+                  <ProductType>{item.product_name}</ProductType>
+                  <ProductPrice>NT${item.product_price}</ProductPrice>
+                  <button
+                    type="button"
+                    class={
+                      compareList
+                        .map((item) => item.id)
+                        .includes(item.product_id)
+                        ? 'alreadyAdd'
+                        : ''
+                    }
+                    onClick={() => {
+                      compareList.map((e) => e.id).includes(item.product_id)
+                        ? handleRemoveFromCompare(
+                            compareList
+                              .map((e) => e.id)
+                              .findIndex((e) => e === item.product_id)
+                          )
+                        : handleAddToCompare(
+                            item.product_id,
+                            item.product_title_image,
+                            item.product_brand,
+                            item.product_name
+                          );
+                    }}
+                  >
+                    {compareList
+                      .map((item) => item.id)
+                      .includes(item.product_id) ? (
+                      <div>
+                        <span>✓ </span>已加入比較表
+                      </div>
+                    ) : (
+                      <div>
+                        <span>＋ </span>加入比較表
+                      </div>
+                    )}
+                  </button>
+                </ProductCard>
+              </QueueAnimA>
+            );
+          })}
       </Container>
     </>
   );
