@@ -17,7 +17,7 @@ import ProductListCards from '../Components/Home/ProductListCards';
 // 商品清單-頁面選擇功能列
 import ProductListPagination from '../Components/Home/ProductListPagination';
 
-import withTracker from './utils/withTracker';
+import withTracker from '../utils/withTracker';
 //--------------------style------------------------//
 
 const Row0 = styled.div`
