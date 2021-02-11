@@ -3,10 +3,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import 'normalize.css';
 //  制定路由
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// GA
-import ReactGA from 'react-ga';
-// 讓GA能讀取react-router
-// import withTracker from './utils/withTracker';
 //--------------------所有頁面共用元件-----------------------//
 //設定頁面寬度
 import Container from './Components/Container';
@@ -25,8 +21,11 @@ import ComparePage from './Pages/ComparePage';
 // import ProductList from './Pages/testPage/pages/ProductList';
 
 // //-------------------------GA---------------------------//
-// ReactGA.initialize('UA-180233172-1');
-// ReactGA.pageview(window.location.pathname + window.location.search);
+// GA
+import ReactGA from 'react-ga';
+// 讓GA能讀取react-router
+// import withTracker from './utils/withTracker';
+
 import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 history.listen((location) => {
@@ -42,10 +41,11 @@ function App() {
   const [currentPage, setCurrentPage] = useState('Home');
 
   //-------------------------GA---------------------------//
+
   // 初始化
   useEffect(() => {
     ReactGA.initialize('UA-180233172-1');
-    // ReactGA.pageview(window.location.pathname);
+    ReactGA.pageview(window.location.pathname);
     // ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
