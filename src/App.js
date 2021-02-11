@@ -86,8 +86,8 @@ function App() {
     //--------------------路由表-----------------------//
 
     // <Router>元件一定要放在最外層
-    <Router basename={process.env.PUBLIC_URL}>
-      {/* <Router basename={process.env.PUBLIC_URL} history={history}> */}
+    // <Router basename={process.env.PUBLIC_URL}>
+    <Router history={history} basename={process.env.PUBLIC_URL}>
       <>
         {/* 放切頁時不重新渲染的部份 s*/}
         <Container>
