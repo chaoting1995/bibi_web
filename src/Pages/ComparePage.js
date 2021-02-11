@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled from '@emotion/styled';
 import { getProductData } from '../utils/getProductData';
 import { compareItems } from '../Components/Compare/CompareItems/compareItems';
+import { withRouter } from 'react-router-dom';
+
 //---------------匯入子元件------------------//
 
 import CompareBox from '../Components/Compare/CompareBox';
@@ -251,5 +253,6 @@ const ComparePage = (props) => {
     </>
   );
 };
-export default ComparePage;
+// export default ComparePage;
+export default withRouter(ComparePage);
 // export default withTracker(ComparePage);
