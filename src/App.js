@@ -45,8 +45,8 @@ function App() {
   // 初始化
   useEffect(() => {
     ReactGA.initialize('UA-180233172-1');
-    ReactGA.pageview(window.location.pathname);
-    // ReactGA.pageview(window.location.pathname + window.location.search);
+    // ReactGA.pageview(window.location.pathname);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   //----------localStorage:一掛載，就取得比較清單---------------//
