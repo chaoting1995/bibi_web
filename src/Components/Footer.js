@@ -29,7 +29,7 @@ const Footer = (props) => {
         <div>
           <p>成為合作夥伴</p>
           <p>聯絡我們：laptopbibi.service@gmail.com</p>
-          <p> 更新時間:2021.02.12 22:17</p>
+          <p> 更新時間:2021.02.13 04:02</p>
         </div>
       </FooterWrap>
     </>

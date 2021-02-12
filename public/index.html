@@ -27,18 +27,20 @@
     <title>電腦比比-Bibi</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
+
+    <!-- <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-180233172-1"
-    ></script>
-    <!-- <script>
+    ></script> -->
+
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
       gtag('config', 'UA-180233172-1');
-    </script> -->
+    </script>
   </head>
 
   <body>
@@ -74,6 +76,15 @@
         js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
       })(document, 'script', 'facebook-jssdk');
+    </script>
+    <script>
+      const customerService = document.querySelector('#fb-root');
+      customerService.addEventListener('click', () => {
+        gtag('event', 'click to get help', {
+          event_category: 'home',
+          event_label: 'customerService',
+        });
+      });
     </script>
 
     <!-- Your Chat Plugin code -->

@@ -36,7 +36,7 @@ export const otherItems = [
       '2GB',
       '4GB',
       '6GB',
-      '8G',
+      '8GB',
       '12GB',
       '16GB',
       '20GB',
@@ -51,10 +51,11 @@ export const otherItems = [
     big_header: ['重量', 'product_weight'],
     little_headers: [
       '1kg以下(不含1kg)',
-      '1.0-1.19kg',
-      '1.2-1.39kg',
-      '1.4-1.59kg',
-      '1.6kg以上',
+      '1.0-1.49kg',
+      '1.5-1.99kg',
+      '2.0-2.49kg',
+      '2.5-2.99kg',
+      '3kg以上',
     ],
   },
   {
@@ -69,6 +70,7 @@ export const otherItems = [
       '70-79Wh',
       '80-89Wh',
       '90-99Wh',
+      '100Wh以上',
     ],
   },
 ];

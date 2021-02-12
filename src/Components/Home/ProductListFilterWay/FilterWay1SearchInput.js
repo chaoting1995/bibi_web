@@ -3,6 +3,11 @@ import styled from '@emotion/styled';
 
 //-----------------------匯入icon--------------------------//
 import { ReactComponent as SearchIcon } from '../../../images/search_icon.svg';
+
+//-------------------GA-----------------------//
+import { readGAEvent } from '../../../utils/readGAEvent';
+// category ,action, label
+
 //-----------------------style---------------------------//
 const SearchBar = styled.div`
   display: flex;
@@ -68,11 +73,13 @@ const FilterWay1SearchInput = (props) => {
           onKeyPress={(e) => {
             if (e.key === 'Enter' && searchText) setSearch(e.target.value);
           }}
+          onClick={() => readGAEvent('home', 'click filters ', 'search bar')}
         ></input>
         <button
           type="button"
           onClick={() => {
             if (searchText) setSearch(searchText);
+            readGAEvent('home', 'click filters', 'search bar magnifier');
           }}
         >
           <SearchIcon />

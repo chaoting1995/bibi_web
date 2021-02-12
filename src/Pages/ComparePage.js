@@ -4,6 +4,10 @@ import { getProductData } from '../utils/getProductData';
 import { compareItems } from '../Components/Compare/CompareItems/compareItems';
 // import { withRouter } from 'react-router-dom';
 
+// -------------------GA-----------------------//
+import { readGAEvent } from '../utils/readGAEvent';
+// category ,action, label
+
 //---------------匯入子元件------------------//
 
 import CompareBox from '../Components/Compare/CompareBox';
@@ -41,6 +45,7 @@ const Table = styled.table`
   }
   td:nth-of-type(1) > div {
     cursor: pointer;
+    display: inline-block;
   }
   td:nth-of-type(1) ~ td {
     width: 230px;
@@ -223,6 +228,7 @@ const ComparePage = (props) => {
                 <div
                   onClick={() => {
                     handleRemoveCompareItems(item[0]);
+                    readGAEvent('compare', 'click to delete item', item[0]);
                   }}
                 >
                   <RemoveButton>-</RemoveButton>

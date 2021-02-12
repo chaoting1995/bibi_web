@@ -265,7 +265,7 @@ const CompareBox = (props) => {
               readGAEvent(
                 'home',
                 'click compare input',
-                `left${compareListIndex}`
+                `left${compareListIndex + 1}`
               )
             }
           ></input>

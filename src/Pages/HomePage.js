@@ -94,6 +94,11 @@ function HomePage(props) {
   //--------------------GA+router--------------------------//
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
+    // console.log('filterCondition', filterCondition);
+    // localStorage.setItem(
+    //   'filterCondition',
+    //   JSON.stringify(filterCondition || [])
+    // );
   }, []);
 
   //--------------------fetch:取得商品資料------------------------//

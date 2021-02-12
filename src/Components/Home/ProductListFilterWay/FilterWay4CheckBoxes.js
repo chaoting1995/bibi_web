@@ -1,5 +1,10 @@
 // import React from 'react';
 import React from 'react';
+
+// -------------------GA-----------------------//
+import { readGAEvent } from '../../../utils/readGAEvent';
+// category ,action, label
+
 //-------------------------style-------------------------//
 
 //-----------------------component----------------------//
@@ -21,7 +26,16 @@ function FilterWay4CheckBoxes(props) {
     <>
       {itemA.little_headers.map((item, index) => (
         <li key={index}>
-          <label>
+          <label
+            onClick={() => {
+              readGAEvent('home', `click filters ${itemA.big_header[1]}`, item);
+              console.log(
+                'home/',
+                `click filters ${itemA.big_header[1]}/`,
+                item
+              );
+            }}
+          >
             <input
               type="checkbox"
               value={item}

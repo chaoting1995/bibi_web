@@ -4,6 +4,10 @@ import { getProductData } from '../../utils/getProductData';
 import styled from '@emotion/styled';
 import { ReactComponent as SearchIcon } from '../../images/search_icon.svg';
 
+//-------------------GA-----------------------//
+import { readGAEvent } from '../../utils/readGAEvent';
+// category ,action, label
+
 //--------------------style-----------------------//
 
 // //包CompareInputWap
@@ -217,6 +221,11 @@ const CompareBox = (props) => {
             value={compareInput}
             onChange={(e) => {
               setCompareInput(e.target.value);
+              readGAEvent(
+                'compare',
+                'click compare input',
+                `left${compareListIndex + 1}`
+              );
             }}
           ></input>
           <SearchIcon />

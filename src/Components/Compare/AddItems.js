@@ -2,6 +2,11 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 // import { ReactComponent as SelectIcon } from '../../images/search_icon.svg';
+
+// -------------------GA-----------------------//
+import { readGAEvent } from '../../utils/readGAEvent';
+// category ,action, label
+
 //--------------------style-----------------------//
 //包輸入框
 const AddSelectWap = styled.div`
@@ -148,14 +153,27 @@ const AddItems = (props) => {
                 key={index}
                 onClick={() => {
                   handleAddCompareItems(item[0]);
-                  console.log('item[0]', item[0]);
+                  readGAEvent('compare', 'click to add back item', item[0]);
                 }}
               >
                 <RemoveButton>+</RemoveButton>
-                <span>{item[1]} </span>
+                <span>{item[1]}</span>
               </li>
             );
           })}
+          {/* {Object.entries(addStates).length > 2 && (
+            <li
+              onClick={() => {
+                Object.entries(addStates).forEach((item1) =>
+                  handleAddCompareItems(item1[0])
+                );
+                readGAEvent('compare', 'click to add back item', 'all');
+              }}
+            >
+              <RemoveButton>o</RemoveButton>
+              <span>所有</span>
+            </li>
+          )} */}
         </AddOptions>
       </AddSelectWap>
     </>

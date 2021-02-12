@@ -4,6 +4,11 @@ import { withRouter } from 'react-router-dom';
 
 //-----------------------匯入icon--------------------------//
 import { ReactComponent as Logo } from '../images/logo.svg';
+
+// -------------------GA-----------------------//
+import { readGAEvent } from '../utils/readGAEvent';
+// category ,action, label
+
 //-----------------------style---------------------------//
 const HeaderWrap = styled.header`
   width: 100%;
@@ -49,8 +54,12 @@ const Header = (props) => {
         </div>
         <h2
           onClick={() => {
-            if (currentPage === 'home') props.history.push('/compare');
+            if (currentPage === 'home') {
+              props.history.push('/compare');
+              readGAEvent('home', 'click tabs', 'compare page');
+            }
             if (currentPage === 'compare') props.history.push('/');
+            readGAEvent('home', 'click tabs', 'home page');
           }}
         >
           {currentPage === 'home' ? '比較表' : '回首頁'}

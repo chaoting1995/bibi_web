@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 
 //----------------------material-ui----------------------//
@@ -9,6 +9,10 @@ import Slider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
 import PropTypes from 'prop-types';
 // import styled from '@emotion/styled/types/base';
+
+// -------------------GA-----------------------//
+import { readGAEvent } from '../../../utils/readGAEvent';
+// category ,action, label
 
 //-------------------------style-------------------------//
 const useStyles = makeStyles((theme) => ({
@@ -123,6 +127,7 @@ const ButtonWrap = styled.div`
 //-----------------------component-----------------------//
 function CustomizedSlider(props) {
   const [priceRangeNum, setPriceRangeNum] = useState([10000, 80000]);
+
   const { setPriceRange } = props;
   const classes = useStyles();
 
@@ -149,7 +154,14 @@ function CustomizedSlider(props) {
         <div className={classes.margin} />
       </div>
       <ButtonWrap>
-        <button onClick={() => setPriceRange(priceRangeNum)}>查看商品</button>
+        <button
+          onClick={() => {
+            setPriceRange(priceRangeNum);
+            readGAEvent('home', 'click filters price', 'confirm price');
+          }}
+        >
+          查看商品
+        </button>
       </ButtonWrap>
     </>
   );

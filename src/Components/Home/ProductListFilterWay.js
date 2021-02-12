@@ -16,6 +16,10 @@ import AccordionDetailsA from '@material-ui/core/AccordionDetails';
 import AccordionSummaryA from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+// -------------------GA-----------------------//
+import { readGAEvent } from '../../utils/readGAEvent';
+// category ,action, label
+
 //-----------------------style---------------------------//
 
 const FWSmallHeader = styled.span`
@@ -115,7 +119,16 @@ const ProductListFilterWay = (props) => {
         <div className={classes.root}>
           {/* 品牌單選 */}
           <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              onClick={() =>
+                readGAEvent(
+                  'home',
+                  `click filters product_brand`,
+                  `open product_brand`
+                )
+              }
+            >
               <FWSmallHeader>品牌</FWSmallHeader>
             </AccordionSummary>
             <AccordionDetails>
@@ -127,7 +140,16 @@ const ProductListFilterWay = (props) => {
           <hr />
           {/* 價格範圍 */}
           <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              onClick={() =>
+                readGAEvent(
+                  'home',
+                  `click filters product_price`,
+                  `open product_price`
+                )
+              }
+            >
               <FWSmallHeader>價格</FWSmallHeader>
             </AccordionSummary>
             <AccordionDetails>
@@ -142,7 +164,16 @@ const ProductListFilterWay = (props) => {
             return (
               <div key={index}>
                 <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    onClick={() =>
+                      readGAEvent(
+                        'home',
+                        `click filters ${item.big_header[1]}`,
+                        `open ${item.big_header[1]}`
+                      )
+                    }
+                  >
                     <FWSmallHeader>{item.big_header[0]}</FWSmallHeader>
                   </AccordionSummary>
                   <AccordionDetails>
@@ -160,7 +191,10 @@ const ProductListFilterWay = (props) => {
             );
           })}
         </div>
-        <QueryReset {...props} />
+        <QueryReset
+          {...props}
+          onClick={() => readGAEvent('home', 'click filters', 'clean')}
+        />
       </section>
     </>
   );
