@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { ReactComponent as SearchIcon } from '../../images/search_icon.svg';
 
 //--------------------GA-----------------------//
-import { readGAEvent } from '../../utils/GAEvents';
+import { readGAEvent } from '../../utils/readGAEvent';
 // category ,action, label
 
 //--------------------style-----------------------//
@@ -86,6 +86,7 @@ const CompareInputWap = styled.div`
     position: absolute;
     top: 10px;
     right: 5px;
+    pointer-events: none; /* 穿透屬性*/
   }
 `;
 
@@ -260,6 +261,13 @@ const CompareBox = (props) => {
             onChange={(e) => {
               setCompareInput(e.target.value);
             }}
+            onClick={() =>
+              readGAEvent(
+                'home',
+                'click compare input',
+                `left${compareListIndex}`
+              )
+            }
           ></input>
           <SearchIcon />
           <CompareOptions compareListItem={compareList[compareListIndex]}>

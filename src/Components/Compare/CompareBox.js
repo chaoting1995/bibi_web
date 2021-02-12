@@ -45,6 +45,7 @@ const CompareInputWap = styled.div`
     position: absolute;
     top: 10px;
     right: 5px;
+    pointer-events: none; /* 穿透屬性*/
   }
 `;
 
@@ -176,7 +177,7 @@ const CompareBox = (props) => {
   // Declare
   const getProductDataInSetState = useCallback(async () => {
     const data = await getProductData({ search: compareInput });
-    setProductData(data);
+    setProductData(data[0].rows);
     // console.log('取商品資料', data);
     // console.log('productData', productData);
   }, [compareInput]);

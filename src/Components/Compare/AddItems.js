@@ -98,6 +98,7 @@ const SelectIcon = styled.div`
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  pointer-events: none; /* 穿透屬性*/
 `;
 
 // +的按鈕icon

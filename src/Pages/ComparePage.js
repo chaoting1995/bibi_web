@@ -110,7 +110,7 @@ const ComparePage = (props) => {
 
   // Declare
   const getProductDataInSetState = useCallback(async () => {
-    const data = await getProductData({ search: compareInput });
+    const data = await getProductData({ search: compareInput, page: 1 });
     setProductData(data[0].rows);
     // console.log('取商品資料', data);
     // console.log('productData', productData);
@@ -229,21 +229,21 @@ const ComparePage = (props) => {
                   <span>{item[1]}</span>
                 </div>
               </td>
-              {[0, 1, 2, 3].map((item1) => {
+              {[0, 1, 2, 3].map((item1, index1) => {
                 if (compareList[item1]) {
                   return (
-                    <td key={item1}>
-                      {productData.length && item[0] === 'product_price'
+                    <td key={index1}>
+                      {!!productData.length && item[0] === 'product_price'
                         ? 'NT$ '
                         : ''}
-                      {productData.length &&
+                      {!!productData.length &&
                         productData.find(
                           (e) => e.product_id === compareList[item1].id
                         )[item[0]]}
-                      {productData.length && item[0] === 'product_price'
+                      {!!productData.length && item[0] === 'product_price'
                         ? ' 元'
                         : ''}
-                      {productData.length && item[0] === 'product_weight'
+                      {!!productData.length && item[0] === 'product_weight'
                         ? ' kg'
                         : ''}
                     </td>
