@@ -44,6 +44,7 @@ function App() {
   // 初始化
   useEffect(() => {
     ReactGA.initialize('UA-180233172-1');
+    // ReactGA.set({ page: location.pathname });
     // ReactGA.pageview(window.location.pathname);
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);

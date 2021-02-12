@@ -6,23 +6,9 @@ import styled from '@emotion/styled';
 import { ReactComponent as SearchIcon } from '../../images/search_icon.svg';
 
 //--------------------GA-----------------------//
-// import { initGA, logPageView } from '../utils/analytics'
-// export default class Layout extends React.Component {
-//   componentDidMount () {
-//     if (!window.GA_INITIALIZED) {
-//       initGA()
-//       window.GA_INITIALIZED = true
-//     }
-//     logPageView()
-//   }
-//   render () {
-//     return (
-//       <div>
-//         {this.props.children}
-//       </div>
-//     )
-//   }
-// }
+import { readGAEvent } from '../../utils/getProductData';
+// category ,action, label
+
 //--------------------style-----------------------//
 
 // CompareInputWap背景灰色那塊
@@ -337,6 +323,7 @@ const ProductListCompareBar = (props) => {
             id="compare-btn"
             onClick={() => {
               props.history.push('/compare');
+              readGAEvent('home', 'click to compare page', 'compare btn');
             }}
           >
             前往比較表
