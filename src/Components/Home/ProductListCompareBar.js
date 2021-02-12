@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { ReactComponent as SearchIcon } from '../../images/search_icon.svg';
 
 //--------------------GA-----------------------//
-import { readGAEvent } from '../../utils/getProductData';
+import { readGAEvent } from '../../utils/GAEvents';
 // category ,action, label
 
 //--------------------style-----------------------//

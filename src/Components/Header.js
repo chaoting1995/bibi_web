@@ -53,7 +53,7 @@ const Header = (props) => {
             if (currentPage === 'compare') props.history.push('/');
           }}
         >
-          {currentPage === 'home' ? '比較表' : '回首頁喔!!!!'}
+          {currentPage === 'home' ? '比較表' : '回首頁'}
         </h2>
       </HeaderWrap>
     </>
