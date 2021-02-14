@@ -12,6 +12,7 @@ export const readGAEvent = (category, action, label) => {
 // // category ,action, label
 // onClick={() => readGAEvent()}
 
+//都沒有商品卡的事件
 const e = [
   //component: ProductListCompareBar
   // 首頁比較bar左邊數來第一欄

@@ -115,7 +115,7 @@ const ComparePage = (props) => {
 
   // Declare
   const getProductDataInSetState = useCallback(async () => {
-    const data = await getProductData({ search: compareInput, page: 1 });
+    const data = await getProductData({ search: compareInput });
     setProductData(data[0].rows);
     // console.log('取商品資料', data);
     // console.log('productData', productData);
@@ -239,23 +239,37 @@ const ComparePage = (props) => {
                 if (compareList[item1]) {
                   return (
                     <td key={index1}>
-                      {!!productData.length && item[0] === 'product_price'
+                      {!!productData.length &&
+                      !!productData.find(
+                        (e) => e.product_id === compareList[item1].id
+                      ).product_price &&
+                      item[0] === 'product_price'
                         ? 'NT$ '
                         : ''}
                       {!!productData.length &&
                         productData.find(
                           (e) => e.product_id === compareList[item1].id
                         )[item[0]]}
-                      {!!productData.length && item[0] === 'product_price'
+                      {!!productData.length &&
+                      !!productData.find(
+                        (e) => e.product_id === compareList[item1].id
+                      ).product_price &&
+                      item[0] === 'product_price'
                         ? ' 元'
                         : ''}
+                      {!!productData.length &&
+                        !productData.find(
+                          (e) => e.product_id === compareList[item1].id
+                        ).product_price &&
+                        item[0] === 'product_price' &&
+                        '價格不明'}
                       {!!productData.length && item[0] === 'product_weight'
                         ? ' kg'
                         : ''}
                     </td>
                   );
                 } else {
-                  return <td key={item1}></td>;
+                  return <td key={index1}></td>;
                 }
               })}
             </tr>

@@ -1,5 +1,5 @@
 // import React from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // -------------------GA-----------------------//
 import { readGAEvent } from '../../../utils/readGAEvent';
@@ -20,6 +20,14 @@ function FilterWay4CheckBoxes(props) {
       },
     });
   };
+  // useEffect(() => {
+  //   console.log('filterCondition state', filterCondition);
+  //   localStorage.setItem(
+  //     'filterCondition',
+  //     JSON.stringify(filterCondition || [])
+  //   );
+  // }, [onChangeFilterCondition]);
+
   //-----------------------------JSX----------------------//
 
   return (
@@ -29,11 +37,6 @@ function FilterWay4CheckBoxes(props) {
           <label
             onClick={() => {
               readGAEvent('home', `click filters ${itemA.big_header[1]}`, item);
-              console.log(
-                'home/',
-                `click filters ${itemA.big_header[1]}/`,
-                item
-              );
             }}
           >
             <input

@@ -74,8 +74,7 @@ function HomePage(props) {
   //搜尋品牌或型號
   const [search, setSearch] = useState('');
   //篩選品牌
-  const [filterBrand, setFilterBrand] = useState(-1);
-  // const [filterBrand, setFilterBrand] = useState(0);
+  const [filterBrand, setFilterBrand] = useState(0);
   //價格篩選
   const [priceRange, setPriceRange] = useState([]);
   //篩選條件的勾選狀態
@@ -94,11 +93,6 @@ function HomePage(props) {
   //--------------------GA+router--------------------------//
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    // console.log('filterCondition', filterCondition);
-    // localStorage.setItem(
-    //   'filterCondition',
-    //   JSON.stringify(filterCondition || [])
-    // );
   }, []);
 
   //--------------------fetch:取得商品資料------------------------//
@@ -163,7 +157,7 @@ function HomePage(props) {
   // 重置刪選與搜尋
   const handleQueryReset = useCallback(() => {
     setSearch('');
-    setFilterBrand(-1);
+    setFilterBrand(0);
     setPriceRange([]);
     setFilterCondition(itemsState);
   }, []);

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import QueueAnim from 'rc-queue-anim';
 
@@ -6,7 +6,7 @@ import QueueAnim from 'rc-queue-anim';
 // 產品詳頁
 // import ProductDetailModal from './ProductDetailModal1';
 // import ProductDetailModal from './ProductDetailModal';
-// import ProductDetailModal from './ProductDetailModal2';
+import ProductDetailModal from './ProductDetailModal';
 
 //--------------------style-----------------------//
 const Container = styled.div`
@@ -124,36 +124,33 @@ const ProductListCards = (props) => {
     handleAddToCompare,
     handleRemoveFromCompare,
   } = props;
+  // 光箱內詳頁資料
   const [currentProductData, setCurrentProductData] = useState(false);
   //-----------------------handle--------------------------//
 
-  const handleOpenModal = useCallback(
-    (id) => {
-      // 控制指示器
-      // setDetailRequest(true);
-      // Display Modal and Loading Icon
-      setModalController(true);
-      // 當前商品詳細資料
-      setCurrentProductData(productData.find((e) => e.product_id === id));
-    },
-    [productData]
-  );
+  const handleOpenModal = (id) => {
+    // 控制指示器
+    // setDetailRequest(true);
+    // Display Modal and Loading Icon
+    setModalController(true);
+    // 當前商品詳細資料
+    setCurrentProductData(productData.find((e) => e.product_id === id));
+  };
 
   //--------------------------JSX-----------------------------//
 
   return (
     <>
-      {/* {modalController && (
+      {modalController && (
         <ProductDetailModal
           setModalController={setModalController}
-          modalController={modalController}
           detailRequest={detailRequest}
           currentProductData={currentProductData}
           compareList={compareList}
           handleAddToCompare={handleAddToCompare}
           handleRemoveFromCompare={handleRemoveFromCompare}
         ></ProductDetailModal>
-      )} */}
+      )}
       <Container>
         {productData &&
           productData.map((item, index) => {

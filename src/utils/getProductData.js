@@ -8,13 +8,13 @@ export function getProductData({
   page,
 }) {
   let query = '';
-  if (search) query += `search=${search}`;
+  if (search) query += `&search=${search}`;
   //不懂為何非得這樣設
-  if (filterBrand === 0) query += `filterBrand=${0}`;
-  if (filterBrand > 0) query += `filterBrand=${filterBrand}`;
-  // if (filterBrand) query += `filterBrand=${filterBrand}`;
-  // if (filterCondition)
-  // query += `filterCondition=${JSON.stringify(filterCondition)}`;
+  // if (filterBrand === 0) query += `&filterBrand=${0}`;
+  // if (filterBrand > 0) query += `&filterBrand=${filterBrand}`;
+  if (filterBrand) query += `&filterBrand=${filterBrand}`;
+  if (filterCondition)
+    query += `&filterCondition=${JSON.stringify(filterCondition)}`;
   if (sort) query += `&sort=${sort}`;
   if (frontPrice || backPrice)
     query += `&frontPrice=${frontPrice}&backPrice=${backPrice}`;

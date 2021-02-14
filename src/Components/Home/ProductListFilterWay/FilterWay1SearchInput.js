@@ -71,14 +71,20 @@ const FilterWay1SearchInput = (props) => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           onKeyPress={(e) => {
-            if (e.key === 'Enter' && searchText) setSearch(e.target.value);
+            if (e.key === 'Enter' && searchText) {
+              setSearch(e.target.value);
+              setSearchText('');
+            }
           }}
           onClick={() => readGAEvent('home', 'click filters ', 'search bar')}
         ></input>
         <button
           type="button"
           onClick={() => {
-            if (searchText) setSearch(searchText);
+            if (searchText) {
+              setSearch(searchText);
+              setSearchText('');
+            }
             readGAEvent('home', 'click filters', 'search bar magnifier');
           }}
         >
