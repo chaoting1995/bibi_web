@@ -88,7 +88,7 @@ const RemoveButton = styled.div`
 const FixedWrap = styled.div`
   ${'' /* position: fixed; */}
   position: absolute;
-  max-width: 1070px;
+  width: 1070px;
   z-index: 2;
   ${'' /* display: none; */}
   ${'' /* margin: 0 auto 0 auto; */}
