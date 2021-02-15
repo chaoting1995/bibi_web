@@ -23,7 +23,7 @@ import ReactGA from 'react-ga';
 //--------------------style------------------------//
 
 const Row0 = styled.div`
-  width: 1070px;
+  max-width: 1070px;
   height: 140px;
   margin-bottom: 40px;
 `;
@@ -51,11 +51,13 @@ const scroll = {
 
 //包Main、Aside
 const Row2 = styled.div`
-    display: flex;｀
-  `;
+  display: flex;
+  width: 1070px;
+`;
 
 //控制商品清單的寬度比例
 const Main = styled.main`
+  ${'' /* width: 787px; */}
   width: 75%;
 `;
 //控制側欄的寬度比例
