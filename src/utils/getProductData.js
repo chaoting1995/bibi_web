@@ -21,8 +21,9 @@ export function getProductData({
   if (page) query += `&page=${page}`;
 
   // const url = `http://35.194.203.197/search_name.php?${query}`;
+  const url = `http://35.201.166.28/search_name.php?${query}`;
   // const url = `http://laptopbibi.cf/summary.php?${query}`;
-  const url = `http://laptopbibi.cf/search_name.php?${query}`;
+  // const url = `http://laptopbibi.cf/search_name.php?${query}`;
   const request = new Request(url, {
     method: 'GET',
     headers: new Headers({
