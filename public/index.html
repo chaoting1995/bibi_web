@@ -75,11 +75,12 @@
         js.id = id;
         js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
-        FB.Event.subscribe('customerchat.show', () => {console.log('22222')};
+        FB.Event.subscribe('customerchat.show', () => {
+          console.log('22222');
+        });
         FB.Event.subscribe('customerchat.load', () => {
-        console.log('2222444333');
-
-      });
+          console.log('2222444333');
+        });
       })(document, 'script', 'facebook-jssdk');
     </script>
     <script>
