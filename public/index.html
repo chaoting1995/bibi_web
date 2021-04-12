@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>電腦比比-Bibi</title>
+    <title>電腦比比-Bibi111</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -75,16 +75,34 @@
         js.id = id;
         js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
+        FB.Event.subscribe('customerchat.show', () => {console.log('22222')};
+        FB.Event.subscribe('customerchat.load', () => {
+        console.log('2222444333');
+
+      });
       })(document, 'script', 'facebook-jssdk');
     </script>
     <script>
-      const customerService = document.querySelector('#fb-root');
-      customerService.addEventListener('click', () => {
-        gtag('event', 'click to get help', {
-          event_category: 'home',
-          event_label: 'customerService',
-        });
-      });
+      // const customerService = document.querySelector('._95jk');
+      // customerService.addEventListener('click', () => {
+      //   gtag('event', 'click to get help', {
+      //     event_category: 'home',
+      //     event_label: 'customerService',
+      //   });
+      //   console.log('aaa');
+      // });
+
+      // var btnDownload = document.getElementById('btn-download');
+      // btnDownload.addEventListener(
+      //   'click',
+      //   function () {
+      //     gtag('event', 'download_click', {
+      //       event_category: 'download',
+      //       event_label: '最強攻略下載',
+      //     });
+      //   },
+      //   false
+      // );
     </script>
 
     <!-- Your Chat Plugin code -->
