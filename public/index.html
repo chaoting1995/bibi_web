@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>電腦比比-Bibi666</title>
+    <title>電腦比比-Bibi777</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -67,13 +67,23 @@
         });
 
         FB.Event.subscribe('customerchat.load', () => {
-          console.log('2222444333');
+          console.log('customerchat.load');
         });
         FB.Event.subscribe('customerchat.show', () => {
-          console.log('22222');
+          console.log('customerchat.show');
+        });
+        FB.Event.subscribe('customerchat.hide', () => {
+          console.log('customerchat.hide');
+        });
+        FB.Event.subscribe('customerchat.dialogShow', () => {
+          console.log('customerchat.dialogShow');
+        });
+        FB.Event.subscribe('customerchat.dialogHide', () => {
+          console.log('customerchat.dialogHide');
         });
         FB.Event.subscribe('send_to_messenger', function (e) {
-          console.log('aaabbb');
+          console.log('send_to_messenger');
+          console.log('send_to_messenger+e', e);
         });
       };
 
