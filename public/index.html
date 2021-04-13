@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>電腦比比-Bibi444</title>
+    <title>電腦比比-Bibi555</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -65,15 +65,13 @@
           xfbml: true,
           version: 'v9.0',
         });
-        FB.Event.subscribe('customerchat.show', () => {
-          console.log('22222');
-        });
+
         FB.Event.subscribe('customerchat.load', () => {
           console.log('2222444333');
         });
-        function receivedMessage(event) {
-          console.log('aaaaa');
-        }
+        FB.Event.subscribe('customerchat.show', () => {
+          console.log('22222');
+        });
       };
 
       (function (d, s, id) {
@@ -84,9 +82,7 @@
         js.id = id;
         js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
-        function receivedMessage(event) {
-          console.log('aaaaa');
-        }
+
         // FB.Event.subscribe('customerchat.show', () => {
         //   console.log('22222');
         // });
@@ -94,6 +90,13 @@
         //   console.log('2222444333');
         // });
       })(document, 'script', 'facebook-jssdk');
+      focus();
+      var listener = window.addEventListener('blur', function () {
+        if (document.activeElement === document.getElementById('iframe')) {
+          console.log('aaabbb');
+        }
+        window.removeEventListener('blur', listener);
+      });
     </script>
     <script>
       // const customerService = document.querySelector('._95jk');
@@ -126,6 +129,7 @@
       theme_color="#6699cc"
       logged_in_greeting="Hi! 有什麼我可以幫的上忙的地方？"
       logged_out_greeting="Hi! 有什麼我可以幫的上忙的地方？"
+      greeting_dialog_display="fade"
     ></div>
   </body>
 </html>
