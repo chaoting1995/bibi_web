@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>電腦比比-Bibi333</title>
+    <title>電腦比比-Bibi444</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -84,6 +84,9 @@
         js.id = id;
         js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
+        function receivedMessage(event) {
+          console.log('aaaaa');
+        }
         // FB.Event.subscribe('customerchat.show', () => {
         //   console.log('22222');
         // });
