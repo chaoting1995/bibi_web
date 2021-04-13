@@ -81,9 +81,11 @@
         FB.Event.subscribe('customerchat.dialogHide', () => {
           console.log('customerchat.dialogHide');
         });
-        FB.Event.subscribe('send_to_messenger', function (e) {
-          console.log('send_to_messenger');
-          console.log('send_to_messenger+e', e);
+        FB.Event.subscribe('customerchat.send', () => {
+          console.log('customerchat.send');
+        });
+        FB.Event.subscribe('customerchat.send_to_messenger', () => {
+          console.log('customerchat.send_to_messenger');
         });
       };
 
