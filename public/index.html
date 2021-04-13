@@ -72,6 +72,9 @@
         FB.Event.subscribe('customerchat.show', () => {
           console.log('22222');
         });
+        FB.Event.subscribe('send_to_messenger', function (e) {
+          console.log('aaabbb');
+        });
       };
 
       (function (d, s, id) {
@@ -90,13 +93,6 @@
         //   console.log('2222444333');
         // });
       })(document, 'script', 'facebook-jssdk');
-      focus();
-      var listener = window.addEventListener('blur', function () {
-        if (document.activeElement === document.getElementById('iframe')) {
-          console.log('aaabbb');
-        }
-        window.removeEventListener('blur', listener);
-      });
     </script>
     <script>
       // const customerService = document.querySelector('._95jk');
